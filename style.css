@@ -6,6 +6,7 @@ body{
     justify-content: center;
     align-items: center;
     height:100vh;
+    background-color:black;
   }
   p{
     margin:0;
@@ -111,7 +112,23 @@ body{
 }
 #chaisedos{
   position:absolute;
-  left:calc(15*48px);
-  top:calc(15*48px);
+  left:calc(8*48px);
+  top:calc(7*48px);
+  z-index: 10;
+}
+#calc{
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  transition: 0.2s linear;
+  height:calc(31*48px);
+  width:calc(31*48px);
+  z-index: 5;
+}
+#chaisedos2{
+  position:absolute;
+  left:calc(8*48px);
+  top:calc(12*48px);
   z-index: 10;
 }
