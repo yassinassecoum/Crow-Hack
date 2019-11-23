@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/13deac3783.js" crossorigin="anonymous"></script>
+
+    <title>Map</title>
+</head>
+<body>
+    
+    <div class="container">
+    <div id="map">
+        <canvas id="myCanvasPng" width="48" height="48"></canvas>
+    </div>
+    <div id="calc">
+    <img id="chaisedos" src="img/tiles/chaise_dos.png">
+    <img id="chaisedos2" src="img/tiles/chaise_dos.png">
+    </div>
+    <canvas id="myCanvas" width="48" height="48"></canvas>
+    <section id="container-box">
+        <section id="box">
+    <p id="ligne1" style= "position: absolute;"></p>
+    <p id= "ligne2"style= "position: absolute; transform: translate(0,100%);"></p>
+    <p id="ligne3"style= "position: absolute;transform: translate(0,200%);"></p>
+        </section>
+        <img id="perso" src=""></img>
+    </section> 
+
+    <!--Interface PC-->
+    
+    <section class="center">
+
+            <!--Dossier Document-->
+            <div class=" folderDrop " id="petitDocument" >
+                    <div class="gauche" id="petitGauche">
+                        <p class="sectionGauche">Bureau</p>
+                        <p class="sectionGauche">Documents</p>
+                        <p class="sectionGauche">projet</p>
+                        <p class="sectionGauche">corbeille</p>
+                        <br>
+                        <br>
+                        <p class="sectionGauche">ce pc</p>
+                    </div>
+                    <div class="droite" id="petitDroite">
+                        <div class="window">
+                            <div class="square"  onclick="grandDoc()">
+                                <i class="fas fa-expand squareBar"></i>
+                            </div>
+                            <div class="cross" onclick="closeDoc()">
+                                <i class="fas fa-times crossBar"></i>
+                            </div>
+                        </div>
+                        <div class="petiteDroite" id="petitPetitDroite">
+                            <div class="dossInFolder">
+                                <p>projet</p>
+                            </div>
+                            <div class="dossInFolder">
+                                <p>projet</p>
+                            </div>
+                            <div class="dossInFolder">
+                                <p>projet</p>
+                            </div>
+                            <div class="txtInFolder">
+                                <p>MyFile.txt</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--Dossier photo-->
+            <div class=" folderDrop" id="petitPhoto" >
+                <div class="gauche" id="petitGauche2">
+                    <p class="sectionGauche">Bureau</p>
+                    <p class="sectionGauche">Documents</p>
+                    <p class="sectionGauche">projet</p>
+                    <p class="sectionGauche">corbeille</p>
+                    <br>
+                    <br>
+                    <p class="sectionGauche">ce pc</p>
+                </div>
+                <div class="droite " id="petitDroite2">
+                    <div class="window">
+                            <div class="square"  onclick="grandPhoto()">
+                                    <i class="fas fa-expand squareBar"></i>
+                        </div>
+                        <div class="cross" onclick="closePhoto()">
+                                <i class="fas fa-times crossBar"></i>
+                        </div>
+                    </div>
+                    <div class="petiteDroite" id="petitPetitDroite2">
+                        <div class="dossInFolder">
+                                <p>on est dans photo</p>
+                            <p>projet</p>
+                        </div>
+                        <div class="dossInFolder">
+                            <p>projet</p>
+                        </div>
+                        <div class="dossInFolder">
+                            <p>projet</p>
+                        </div>
+                        <div class="txtInFolder">
+                            <p>MyFile.txt</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Page Internet-->
+            <div class=" folderDrop" id="noodle" >
+                <div class="millieu" id='petitMillieu'>
+                        <div class="window">
+                                <div class="square"  onclick="grandInternet()">
+                                        <i class="fas fa-expand squareBar"></i>
+                            </div>
+                            <div class="cross" onclick="closeInternet()">
+                                    <i class="fas fa-times crossBar"></i>
+                            </div>
+                        </div>
+                        <div class="bas">
+                            <div>
+                                <p id="one">N</p>
+                                <p id="two">O</p>
+                                <p id="three">O</p>
+                                <p id="four">D</p>
+                                <p id="five">L</p>
+                                <p id="six">E</p>
+                            </div>
+                            <input type="text">
+                            <button>Recherche</button>
+                        </div>
+    
+                </div>
+            </div>
+            <!-- Bureau-->
+            <br>
+            <div id="button" ondblclick="existeDoc()" class="dossier doss1" style="z-index:1" >
+                <p>Documents</p>
+            </div>
+            <br>
+            <div class="dossier doss2" ondblclick="existePhoto()"  style="z-index: 1" id="tof" >
+                <p>photo</p>
+            </div>
+            <br>
+            <div class="dossier doss3"  style="z-index: 1" id="projo">
+                <p>projet</p>
+            </div>
+            <br>
+            <div class="dossier doss4"  style="z-index:1 "  id="trash">
+                <p>corbeille</p>
+            </div>
+    
+    
+            <!--taskbar-->
+        </section>
+        <section class="taskbar">
+            <div class="task2">
+                <i class="fab fa-windows  icone" id="windows" ></i>
+                <i class="fab fa-chrome icone" id="chrome" onclick="existeNoodle()"></i></i>
+                <i class=" fa fa-envelope icone" id="mail"></i>
+                <i class=" fa fa-folder-open icone" id="folder"></i>
+            </div>
+
+                </section>
+</div>
+    <p id="msg"></p>
+        <script src="script.js"></script>
+</body>
+</html>
