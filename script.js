@@ -1,8 +1,9 @@
-const dialogue1 = [ { nom: 'Hackeur', dialogue: 'Bonjour, désolé pour le retard.', image: 'namek.png' }, { nom: 'Client', dialogue: 'Bonjour, pas de soucis ! l', image: 'tortue_geniale.png' },
-        { nom: 'Hackeur', dialogue: 'Suis moi. ', image: 'namek.png' }, { nom: 'Client', dialogue: ' pas de soucis ! t', image: 'tortue_geniale.png' }]
-const dialogue2 = [{ nom: 'Hackeur', dialogue: 'comment allez vous', image: 'namek.png' }, { nom: 'Client', dialogue: 'bien bien', image: 'tortue_geniale.png' }]
 
-const dialogue3 = [{ nom: 'tt', dialogue: 'comment allez vous', image: 'namek.png' }, { nom: 'tt', dialogue: 'bien bien', image: 'tortue_geniale.png' }]
+const dialogue1 = [ { nom: 'Hackeur', dialogue: 'Bonjour, désolé pour le retard.', image: 'img/avatars/crow/content.png' }, { nom: 'Client', dialogue: 'Bonjour, pas de soucis ! l', image: 'img/avatars/client/content.png' },
+        { nom: 'Hackeur', dialogue: 'Suis moi. ', image: 'img/avatars/crow/content.png' }, { nom: 'Client', dialogue: ' pas de soucis ! t', image: 'img/avatars/client/content.png' }]
+const dialogue2 = [{ nom: 'Hackeur', dialogue: 'comment allez vous', image: 'img/avatars/crow/content.png' }, { nom: 'Client', dialogue: 'bien bien', image: 'img/avatars/client/content.png' }]
+
+const dialogue3 = [{ nom: 'tt', dialogue: 'comment allez vous', image: 'img/avatars/crow/content.png' }, { nom: 'tt', dialogue: 'bien bien', image: 'img/avatars/client/content.png' }]
         let ligne
         
         let z = 0
@@ -12,12 +13,12 @@ const dialogue3 = [{ nom: 'tt', dialogue: 'comment allez vous', image: 'namek.pn
         let t = 0
         var actuel;
         function test12(dialogue1){
+            document.getElementById('container-box').style.display= "flex"
             setTimeout(function (){
                 actuel=dialogue1;
-                document.getElementById('box').style.display= "block"
-                document.getElementById('perso').style.display ="block"
-                ligne = document.getElementById(`ligne${k}`)
                 document.getElementById('perso').src = dialogue1[z].image
+
+                ligne = document.getElementById(`ligne${k}`)
                 let texte = dialogue1[z].nom + ' : ' + dialogue1[z].dialogue
                 ligne.innerHTML += texte[j]
                 j++
@@ -59,8 +60,8 @@ const dialogue3 = [{ nom: 'tt', dialogue: 'comment allez vous', image: 'namek.pn
                 }
             test12(actuel)
             }else{
-                document.getElementById('box').style.display= "none"
-                document.getElementById('perso').style.display ="none"
+                this.console.log(5555)
+                document.getElementById('container-box').style.display= "none"
                 if(t==0)scene1();
                 z = 0
                 t++;
@@ -256,7 +257,6 @@ function createElement() {
     })
 }
 var map=document.getElementById("map");
-var perso=document.getElementById("perso");
 var png=document.getElementById("myCanvasPng")
 var useObject=false;
 
