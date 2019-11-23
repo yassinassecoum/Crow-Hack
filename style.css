@@ -37,23 +37,11 @@ body{
   }
   
   #box{
-    display:none;
-    width: 650px; 
-    height: 60px; 
-    overflow: hidden;
-    border: 1px solid black;
-    border-radius: 5%;
-    position: absolute;
-    bottom: 20px;
-    left: 200px;
-  
+    width: 650px;   
+    height: 90px;
   }
   #perso{
-    display:none;
-    width : 10%;
-    position: absolute;
-    bottom: 20px;
-    left: 50px
+    height: 144px;
   }
   #map{
     position: absolute;
@@ -132,6 +120,7 @@ body{
   top:calc(12*48px);
   z-index: 10;
 }
+<<<<<<< HEAD
 #chaisedos3{
   position:absolute;
   left:calc(11*48px);
@@ -231,3 +220,307 @@ body{
   display: none;
 
 }
+=======
+
+/*----------------------------------INTERFACE PC----------------------------------------*/
+
+
+/*bureau*/
+
+
+.center{
+  width: 864px;
+  height: 526px;
+  overflow: hidden;
+  background-color: #00476B;
+  position: relative;
+  z-index: 55555555555555555555555;
+
+}
+
+
+
+.dossier{
+  width: 80px;
+  height: 112px;
+  text-align: center;
+  color:rgba(250, 250, 250, 0.8);
+  font-size: 14px;
+  padding-top: 10px;
+  position: absolute;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  align-items: center;
+}
+
+.doss1,.doss2, .doss3{
+  background-image: url('http://icons.iconarchive.com/icons/mahm0udwally/all-flat/256/Folder-icon.png');
+  background-repeat: no-repeat;
+  background-size: 82px;
+
+}
+
+
+
+.doss4{
+  background-image: url('img/delete.svg');
+  background-repeat: no-repeat;
+  background-size: 82px;
+}
+
+div.dossier > p{
+  position: absolute;
+  top: 85px;
+  text-align: center;
+  left: 10px;
+  pointer-events: none;
+}
+
+div.doss1 > p{
+  left: -4px;
+}
+
+
+/***fenetre*/
+
+
+
+div>.gauche{
+  color:rgba(250, 250, 250, 0.8);
+  width: 25%;
+  background: rgb(42, 42, 42);
+  height:300px;
+
+}
+
+.sectionGauche:hover{
+  background-color: #00476B;
+
+}
+
+
+
+div>.droite{
+  width: 75%;
+  height:270px;
+
+}
+
+.petiteDroite{
+  width: 100%;
+  height: 270px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  transform: translate(0,-30px);
+  
+}
+
+
+
+
+
+.txtInFolder{
+  width: 80px;
+  height: 112px;
+  background-image: url('http://icons.iconarchive.com/icons/mahm0udwally/all-flat/128/Documents-icon.png');
+  background-size: 82px;
+  background-repeat: no-repeat;
+  position: relative;
+  color:rgba(250, 250, 250, 0.8);
+
+}
+.dossInFolder{
+  width: 80px;
+  height: 112px;
+  background-image: url('http://icons.iconarchive.com/icons/mahm0udwally/all-flat/256/Folder-icon.png');
+  background-size: 82px;
+  background-repeat: no-repeat;
+  position: relative;
+  color:rgba(250, 250, 250, 0.8);
+
+}
+
+.dossInFolder > p, .txtInFolder > p{
+  position: absolute;
+  top:85px;
+  left: 50%;
+  transform: translate(-50%)
+}
+
+
+.folderDrop{
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  display: flex;
+  align-items: flex-end;
+  background: rgba(30,30,30, 0.8);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  height: 300px;
+  width: 400px;
+  display: none;
+}
+
+.millieu{
+  width: 100%;
+  height: 270px;
+  margin-top: 30px;
+  background-color: rgb(37, 37, 37);
+}
+
+.grandMillieu{
+  width: 100%;
+  height:496px;
+  background-color: rgb(37, 37, 37);
+
+}
+
+
+
+/*Pour aggrandir*/
+.grand{
+  height: 526px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  background: rgba(30,30,30, 0.8);
+  text-align: center;
+
+}
+
+.grandGauche{
+  color:rgba(250, 250, 250, 0.8);
+  width: 25%;
+  background: rgb(42, 42, 42);
+  height:526px;
+}
+
+.grandDroite{
+  width: 75%;
+  height:496px;
+}
+
+.grandPetiteDroite{
+  width: 100%;
+  height: 496px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  transform: translate(0,-30px);
+  
+}
+
+
+
+/*Barre de fenetre*/
+
+.crossBar{
+  height: 10px;
+  width: 40px;
+  margin-top: 8px;
+
+}
+
+
+.cross{
+  width: 50%;
+  height: 30px;
+  color: rgb(204, 204, 204);
+
+}
+
+
+
+
+.cross:hover{
+  background-color: rgb(149, 1, 1);
+
+}
+
+.squareBar{
+  height: 10px;
+  width: 40px;
+  margin-top: 6px;
+  color: rgb(204, 204, 204);
+
+
+}
+
+.square{
+  width:50%;
+  height: 30px;
+
+}
+
+.square:hover{
+  background-color: rgba(88, 88, 88, 0.877);
+  
+}
+
+.window{
+  display: flex;
+  margin-left: 100%;
+  transform:translate(-100%,-100%);
+  height: 30px;
+  width: 30%;
+}
+
+
+/*taskbar*/
+.taskbar{
+  height: 50px;
+  width: 864px;
+  background-color: rgba(20, 20, 20, 1);
+  overflow: hidden;
+  display: flex;
+position: relative;
+
+
+}
+
+.task2{
+  width: 30%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.icone{
+  color:#989898;
+  font-size: 40px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.icone:hover{
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+}
+#container-box {
+  position: absolute;
+  bottom: 0;
+  width:864px;
+  display: flex;
+  align-items: center;
+  z-index: 50;
+  height: 90px;
+  background: linear-gradient(rgba(49, 49, 87, 0.8) 75%, transparent);
+  color: white;
+  font-size: 25px;
+  padding: 55px 50px 55px 50px;
+  text-shadow: 2px 2px black;
+  display: none;
+}
+
+p {
+  min-height: 1px;
+}
+>>>>>>> cc8227a98993ecfb81b6d6276ff5f4863e147fa5
