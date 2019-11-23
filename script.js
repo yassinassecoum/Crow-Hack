@@ -1,11 +1,12 @@
-const dialogue1 = [{ nom: 'Rachelle', dialogue: 'Bonjour, Puis-je vous aidé', image: 'img/avatars/receptionniste/content.png' }, { nom: 'Crow', dialogue: 'Bonjour, je suis Crow, le nouveau stagiaire en sécurité', image: 'img/avatars/crow/content.png' },
-{ nom: 'Rachelle', dialogue: 'Ah c\'est donc vous que nous attendions. ', image: 'img/avatars/receptionniste/content.png' }, { nom: 'Crow', dialogue: 'Oui effectivement j\'ai hate de commencer!', image: 'img/avatars/crow/content.png' }, { nom: 'Rachelle', dialogue: 'Allez y, quelqun viendra vous chercher !', image: 'img/avatars/receptionniste/content.png' }];
+const dialogue1 = [{ nom: 'Rachel', dialogue: 'Bonjour, Puis-je vous aider?', image: 'img/avatars/receptionniste/content.png' }, { nom: 'Crow', dialogue: 'Bonjour, je suis Crow, le nouveau stagiaire en sécurité.', image: 'img/avatars/crow/content.png' },
+{ nom: 'Rachel', dialogue: "Ah, vous pouvez rentrer, David vous attends." , image: 'img/avatars/receptionniste/content.png' }, { nom: 'Crow', dialogue: "Merci, bonne journée!", image: 'img/avatars/crow/content.png' }, { nom: 'Rachel', dialogue: "Merci, à vous aussi... hihi.", image: 'img/avatars/receptionniste/content.png' }];
 
 
-const dialogue2 = [{ nom: 'Hackeur', dialogue: 'comment allez vous', image: 'img/avatars/crow/content.png' }, { nom: 'Client', dialogue: 'bien bien', image: 'img/avatars/client/content.png' }]
+const dialogue2 = [{ nom: 'David', dialogue: "Bonjour, Crow c'est bien ça?  ", image: 'img/avatars/crow/content.png' }, { nom: 'Crow', dialogue: "Oui c'est bien moi, de qui dois-je m'occuper?", image: 'img/avatars/client/content.png' },
+{ nom: 'David', dialogue: "Je vais vous montrer, suivez moi..", image: 'img/avatars/client/content.png' }]
 
-const dialogue3 = [{ nom: 'tt', dialogue: 'merde mon pc a planter', image: 'img/avatars/crow/content.png' }, { nom: 'tt', dialogue: 'cest con pour toi', image: 'img/avatars/crow/content.png' }]
-
+const dialogue3 = [{ nom: 'David', dialogue: 'Ta cible arrive.', image: 'img/avatars/crow/content.png' }, { nom: 'Crow', dialogue: "...Quoi?", image: 'img/avatars/crow/content.png' }]
+const dialogue4 = [{nom:'Yassion', dialogue: "Salut je suis Yassion! C'est toi le nouveau stagiaire? Crow c'est ça ? Enchanté!", image:'img/avatars/cible/content.png'},{nom:'Crow', dialogue: "...Enchanté Yassion.", image:'img/avatars/cible/content.png'} ]
 let ligne
 let indexDialog = 0
 let j = 0
@@ -101,6 +102,9 @@ window.onkeypress = function (e) {
                         moveRight(canvasVictime, contextVictime, imageObjVictime)
                         victime.colone++;
                         test1()
+                        dialog(dialogue4)
+                        document.getElementById('container-box').style.display = 'flex'
+
                     },1500)
                 }
                 
