@@ -443,3 +443,227 @@ function scene1(){
 }
 console.log(gadji)
 
+
+
+//--------------------------INTERFACE-PC---------------------------//
+
+
+//drag N drop bureau
+function jjj () {
+    var storage = {};
+    let top = 5;
+    function init() {
+
+        var elements = document.querySelectorAll('.dossier'),
+            elementsLength = elements.length;
+        for (var i = 0; i < elementsLength; i++) {
+            elements[i].style.top = top + 'px'
+            top += 135;
+
+            elements[i].addEventListener('mousedown', function (e) {
+                console.log('1')
+
+                var s = storage;
+                s.target = e.target;
+                s.offsetX = e.clientX - s.target.offsetLeft;
+                s.offsetY = e.clientY - s.target.offsetTop;
+            });
+            elements[i].addEventListener('mouseup', function () {
+                console.log('2')
+
+                storage = {};
+            });
+        }
+
+        document.addEventListener('mousemove', function (e) {
+            var target = storage.target;
+
+            if (target) {
+                target.style.top = e.clientY - storage.offsetY + 'px';
+                target.style.left = e.clientX - storage.offsetX + 'px';
+            }
+        });
+    }
+    init();
+    //drag n drop fenetre
+
+    var stock = {};
+    function moveFold() {
+        console.log('ke rentre dans moveFold')
+        var objet = document.querySelectorAll('.folderDrop'),
+            objetLength = objet.length;
+            console.log(objet);
+        for (var i = 0; i < objetLength; i++) {
+            objet[i].addEventListener('mousedown', function (e) {
+                var s = stock;
+                s.target = e.target;
+                s.offsetX = e.clientX - s.target.offsetLeft;
+                s.offsetY = e.clientY - s.target.offsetTop;
+            });
+            objet[i].addEventListener('mouseup', function () {
+                stock = {};
+
+            });
+        }
+
+        document.addEventListener('mousemove', function (e) {
+            var target = stock.target;
+
+            if (target) {
+                target.style.top = e.clientY - stock.offsetY + 'px';
+                target.style.left = e.clientX - stock.offsetX + 'px';
+
+
+            }
+        });
+    }
+    moveFold();
+
+
+} jjj();
+
+
+
+
+
+let priority= 4;
+
+
+function existeDoc(){
+    document.getElementById('petitDocument').className='folderDrop'
+    document.getElementById('petitDocument').style.zIndex=priority;
+    priority ++;
+    document.getElementById('petitDocument').style.display='flex';
+}
+
+
+function existePhoto(){
+    document.getElementById('petitPhoto').className='folderDrop'
+    document.getElementById('petitPhoto').style.zIndex=priority;
+    priority ++;
+    document.getElementById('petitPhoto').style.display='flex';
+
+
+}
+
+function existeNoodle(){
+    document.getElementById('noodle').className='folderDrop'
+    document.getElementById('noodle').style.zIndex=priority;
+    priority ++;
+    document.getElementById('noodle').style.display='flex';
+    console.log('yes')
+}
+
+
+function grandDoc(){
+    let taille1= document.getElementById('petitDocument')
+    let taille2= document.getElementById('petitGauche')
+    let taille3= document.getElementById('petitDroite')
+    let taille4 = document.getElementById('petitPetitDroite')
+    if(taille1.className != 'grand' && taille2.className != 'grandGauche' && taille3.className != 'grandDroite' 
+    && taille4.className != 'grandPetiteDroite' )
+    {
+        taille1.className = 'grand'
+        taille2.className = 'grandGauche'
+        taille3.className = 'grandDroite'
+        taille4.className = 'grandPetiteDroite'
+        document.getElementById('trash').style.display ='none';
+        document.getElementById('tof').style.display ='none';
+        document.getElementById('projo').style.display ='none';
+        document.getElementById('button').style.display ='none';
+        
+    }else {
+        taille1.className = 'folderDrop'
+        taille2.className = 'gauche'
+        taille3.className = 'droite'
+        taille4.className = 'petiteDroite'
+        document.getElementById('trash').style.display ='block';
+        document.getElementById('tof').style.display ='block';
+        document.getElementById('projo').style.display ='block';
+        document.getElementById('button').style.display ='block';
+    }
+
+}
+
+function closeDoc(){
+    document.getElementById('petitDocument').style.display='none'
+    document.getElementById('trash').style.display ='block';
+    document.getElementById('tof').style.display ='block';
+    document.getElementById('projo').style.display ='block';
+    document.getElementById('button').style.display ='block';
+}
+
+
+function grandPhoto(){
+    let taille1= document.getElementById('petitPhoto')
+    let taille2= document.getElementById('petitGauche2')
+    let taille3= document.getElementById('petitDroite2')
+    let taille4 = document.getElementById('petitPetitDroite2')
+    if(taille1.className != 'grand' && taille2.className != 'grandGauche' && taille3.className != 'grandDroite' 
+    && taille4.className != 'grandPetiteDroite' )
+    {
+        taille1.className = 'grand'
+        taille2.className = 'grandGauche'
+        taille3.className = 'grandDroite'
+        taille4.className = 'grandPetiteDroite'
+        document.getElementById('trash').style.display ='none';
+        document.getElementById('tof').style.display ='none';
+        document.getElementById('projo').style.display ='none';
+        document.getElementById('button').style.display ='none';
+    
+    
+    }else {
+        taille1.className = 'folderDrop'
+        taille2.className = 'gauche'
+        taille3.className = 'droite'
+        taille4.className = 'petiteDroite'
+        document.getElementById('trash').style.display ='block';
+        document.getElementById('tof').style.display ='block';
+        document.getElementById('projo').style.display ='block';
+        document.getElementById('button').style.display ='block';
+    }
+
+}
+
+function closePhoto(){
+    document.getElementById('petitPhoto').style.display='none'
+    document.getElementById('trash').style.display ='block';
+    document.getElementById('tof').style.display ='block';
+    document.getElementById('projo').style.display ='block';
+    document.getElementById('button').style.display ='block';
+
+}
+
+function grandInternet() {
+    let taille1= document.getElementById('noodle')
+    let taille2= document.getElementById('petitMillieu')
+
+    if(taille1.className != 'grand' && taille2.className != 'grandGauche'  )
+    {
+        taille1.className = 'grand'
+        taille2.className = 'grandMillieu'
+        document.getElementById('trash').style.display ='none';
+        document.getElementById('tof').style.display ='none';
+        document.getElementById('projo').style.display ='none';
+        document.getElementById('button').style.display ='none';
+    
+    
+    }else {
+        taille1.className = 'folderDrop'
+        taille2.className = 'millieu'
+        document.getElementById('trash').style.display ='block';
+        document.getElementById('tof').style.display ='block';
+        document.getElementById('projo').style.display ='block';
+        document.getElementById('button').style.display ='block';
+    }
+
+
+}
+function closeInternet(){
+    document.getElementById('noodle').style.display='none'
+    document.getElementById('trash').style.display ='block';
+    document.getElementById('tof').style.display ='block';
+    document.getElementById('projo').style.display ='block';
+    document.getElementById('button').style.display ='block';
+
+}
