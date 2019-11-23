@@ -232,7 +232,7 @@ body{
   overflow: hidden;
   background-color: #00476B;
   position: relative;
-  z-index: -55555555555555555555555;
+  z-index: 55555555555555555555555;
 
 }
 
@@ -479,7 +479,7 @@ div>.droite{
   overflow: hidden;
   display: flex;
 position: relative;
-z-index: -1000;
+z-index: 1000;
 
 }
 
