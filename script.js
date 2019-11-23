@@ -58,15 +58,13 @@ window.onkeypress = function (e) {
                 indexDialog++
                 k = 1
                 miliSecond = 50
-                if (step == 2) {
-                    console.log("");
-                }
                 dialog(actuel)
             } else {
                 document.getElementById('box').style.display = "none"
                 document.getElementById('perso').style.display = "none"
                 indexDialog = 0
                 step++;
+                console.log("1",step)
                 j = 0;
                 blocage = false;
 
@@ -248,6 +246,7 @@ function moveDown(canvas, context, imageObj) {
 
 }
 function moveLeft(canvas, context, imageObj) {
+    console.log("moveLeft")
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(imageObj, 0, 48, 48, 48, 0, 0, 48, 48);
     setTimeout(function () {
@@ -328,6 +327,12 @@ var marcus = {
     ligne: 15,
     colone: 27
 }
+var block = {
+    prenom: "block",
+    ligne: 13,
+    colone: 12
+}
+
 
 //mapping complet background-image/48px
 const tiles = [[{ img: "url('img/tiles/coin.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Cloison_double-coins.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/Bordure_Continue.png')", free: false }, { img: "url('img/tiles/coin1.png')", free: false }],//ligne1
@@ -540,7 +545,7 @@ window.onkeydown = function (e) {
 
 
         if (mainCharacter.ligne == 25 && firstTime == true) {
-
+            console.log("1",step)
             blocage = true;
             moveRight(myCanvasPng, contextPng, imageObjPng);
             document.getElementById('exclam').style.display = 'block'
@@ -548,212 +553,47 @@ window.onkeydown = function (e) {
             setTimeout(() => {
                 moveLeft(canvas, context, imageObj)
                 dialog(dialogue1)
+                console.log("2",step)
             }, 300)
 
             firstTime = false;
         }
-        if (mainCharacter.ligne == 18 && secondTime == true && mainCharacter.colone == 8) {
+        if (mainCharacter.ligne == 18 && secondTime == true) {
             blocage = true;
-            moveDown(canvasClient, contextClient, imageObjClient)
-            client.ligne++;
-            test1()
-            setTimeout(function () {
-                moveDown(canvasClient, contextClient, imageObjClient)
-                client.ligne++;
-                test1()
-                setTimeout(function () {
-                    moveDown(canvasClient, contextClient, imageObjClient)
-                    client.ligne++;
-                    test1()
-                    setTimeout(function () {
-                        moveDown(canvasClient, contextClient, imageObjClient)
-                        client.ligne++;
-                        test1()
-                        setTimeout(function () {
-                            moveDown(canvasClient, contextClient, imageObjClient)
-                            client.ligne++;
-                            test1()
-                            setTimeout(function () {
-                                moveLeft(canvasClient, contextClient, imageObjClient);
-                                client.colone--
-                                test1();
-                                setTimeout(function () {
-                                    dialog(dialogue2)
-
-                                    moveUp(canvasClient, contextClient, imageObjClient);
-                                    client.ligne--;
-                                    test1();
-                                    mainCharacter.ligne--;
-                                    moveUp(canvas, context, imageObj);
-                                    test();
-                                    setTimeout(function () {
-                                        moveUp(canvasClient, contextClient, imageObjClient);
-                                        client.ligne--;
-                                        test1();
-                                        mainCharacter.ligne--;
-                                        moveUp(canvas, context, imageObj);
-                                        test();
-                                        setTimeout(function () {
-                                            moveUp(canvasClient, contextClient, imageObjClient);
-                                            client.ligne--;
-                                            test1();
-                                            mainCharacter.ligne--;
-                                            moveUp(canvas, context, imageObj);
-                                            test();
-                                            setTimeout(function () {
-                                                moveUp(canvasClient, contextClient, imageObjClient);
-                                                client.ligne--;
-                                                test1();
-                                                mainCharacter.ligne--;
-                                                moveUp(canvas, context, imageObj);
-                                                test();
-                                                setTimeout(function () {
-                                                    moveUp(canvasClient, contextClient, imageObjClient);
-                                                    client.ligne--;
-                                                    test1();
-                                                    mainCharacter.ligne--;
-                                                    moveUp(canvas, context, imageObj);
-                                                    test();
-                                                    setTimeout(function () {
-                                                        moveRight(canvasClient, contextClient, imageObjClient);
-                                                        client.colone++;
-                                                        test1();
-                                                        setTimeout(function () {
-                                                            moveRight(canvasClient, contextClient, imageObjClient);
-                                                            client.colone++;
-                                                            test1();
-                                                            // simulation interface pc
-                                                            setTimeout(function () {
-                                                                step = 2
-                                                                console.log(step)
-                                                            }, 5000)
-                                                        }, 100)
-                                                    }, 100)
-                                                }, 100)
-                                            }, 100)
-                                        }, 100)
-
-                                    }, 100)
-                                }, 100)
-                            }, 100)
-                        }, 100)
-                    }, 100)
-                }, 100)
-            }, 100)
-secondTime= false;
-        }
-        console.log(step)
-        if (step == 3) {
-            //changé écran pc en rouge
-            // point d'exclamation
-            dialog(dialogue3)
-            if (j == 0) {
-                moveLeft(canvasVictime, contextVictime, imageObjVictime);
-                victime.colone--;
-                test1();
-                setTimeout(function () {
-                    moveLeft(canvasVictime, contextVictime, imageObjVictime);
-                    victime.colone--;
-                    test1();
-                    setTimeout(function () {
-                        moveDown(canvasVictime, contextVictime, imageObjVictime);
-                        victime.ligne++;
-                        test1();
-                        setTimeout(function () {
-                            moveDown(canvasVictime, contextVictime, imageObjVictime);
-                            victime.ligne++;
-                            test1();
-                            setTimeout(function () {
-                                moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                victime.ligne++;
-                                test1();
-                                setTimeout(function () {
-                                    moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                    victime.ligne++;
-                                    test1();
-                                    setTimeout(function () {
-                                        moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                        victime.ligne++;
-                                        test1();
-                                        setTimeout(function () {
-                                            moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                            victime.ligne++;
-                                            test1();
-                                            setTimeout(function () {
-                                                moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                                victime.ligne++;
-                                                test1();
-                                                setTimeout(function () {
-                                                    moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                                    victime.ligne++;
-                                                    test1();
-                                                    setTimeout(function () {
-                                                        moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                                        victime.ligne++;
-                                                        test1();
-                                                        setTimeout(function () {
-                                                            moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                                            victime.ligne++;
-                                                            test1();
-                                                            setTimeout(function () {
-                                                                moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                                                victime.ligne++;
-                                                                test1();
-                                                                setTimeout(function () {
-                                                                    moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                                                    victime.ligne++;
-                                                                    test1();
-                                                                    setTimeout(function () {
-                                                                        moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                                                        victime.ligne++;
-                                                                        test1();
-                                                                        setTimeout(function () {
-                                                                            moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                                                            victime.ligne++;
-                                                                            test1();
-                                                                            setTimeout(function () {
-                                                                                moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                                                                victime.ligne++;
-                                                                                test1();
-                                                                                setTimeout(function () {
-                                                                                    moveDown(canvasVictime, contextVictime, imageObjVictime);
-                                                                                    victime.ligne++;
-                                                                                    test1();
-                                                                                    
-                                                                                },100)
-                                                                            },100)
-                                                                        },100)
-                                                                    },100)
-                                                                },100)
-                                                            },100)
-                                                        },100)
-                                                    },100)
-                                                },100)
-                                            },100)
-                                        },100)
-                                    },100)
-                                },100)
-                            },100)
-                        },100)
-                    },100)
-                },100)
+            moveLr(canvasClient,contextClient,imageObjClient,client,mainCharacter)
+            moveRight(canvas,context,imageObj)
+            setTimeout(function (){
+                moveLeft(canvasClient,contextClient,imageObjClient);
+                dialog(dialogue2)
+                console.log("3",step)
+                if(step==2){
+                    console.log("step2 ok")
+                moveLr(canvasClient,contextClient,imageObjClient,client,block)
+            
                 }
+
+            },2000)
+            
+
+            secondTime= false;
         }
+
+
         }
     }
 
-    function moveUd(canvas, context, imageObj) {
-
-        let feet = mainCharacter.ligne - client.ligne
+    function moveUd(canvas, context, imageObj,depart,arrive) {
+        let feet2 = arrive.ligne - depart.ligne
         m = 1
-        if (feet < 0) {
-            feet = Math.abs(feet)
+        if (feet2 < 0) {
+            feet2 = Math.abs(feet2)
             let interval = setInterval(function () {
                 moveUp(canvas, context, imageObj)
-                client.ligne--;
+                depart.ligne--;
                 test1()
                 m++
-                if (m == feet) {
+                if (m == feet2+1) {
+                    
                     clearInterval(interval)
                     m = 1
                 }
@@ -762,9 +602,11 @@ secondTime= false;
         else {
             let interval = setInterval(function () {
                 moveDown(canvas, context, imageObj)
-                client.ligne++;
+                depart.ligne++;
                 test1()
-                if (m == feet) {
+                m++
+                if (m == feet2+1) {
+                    console.log("ok")
                     clearInterval(interval)
                     m = 1
                 }
@@ -772,20 +614,22 @@ secondTime= false;
         }
 
     }
-    function moveLr(canvas, context, imageObj) {
+    function moveLr(canvas, context, imageObj,depart,arrive) {
         setTimeout(function () {
-            let feet = mainCharacter.colone - client.colone
+            let feet = arrive.colone - depart.colone
+            console.log(depart,arrive)
             m = 1
             if (feet < 0) {
                 feet = Math.abs(feet)
                 let interval = setInterval(function () {
                     moveLeft(canvas, context, imageObj);
-                    client.colone--;
+                    depart.colone--;
                     test1();
                     m++
                     if (m == feet) {
                         clearInterval(interval)
                         m = 1
+                        setTimeout(() => {moveUd(canvasClient,contextClient,imageObjClient,depart,arrive)}, 50)
                     }
                     console.log(m)
                 }, 100)
@@ -794,12 +638,13 @@ secondTime= false;
             else {
                 let interval = setInterval(function () {
                     moveRight(canvas, context, imageObj);
-                    client.colone++;
+                    depart.colone++;
                     test1();
                     m++
                     if (m == feet) {
                         clearInterval(interval)
                         m = 1
+                        setTimeout(() => {moveUd(canvasClient,contextClient,imageObjClient,depart,arrive)}, 50)
                     }
                 }, 100)
             }
