@@ -1,0 +1,58 @@
+body{
+    width: 600px;
+    height: 326px;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+/* zone pour voir les fonctions de base de la boite mail */
+#zoneDeboite{
+    width: 150px;
+    color: whitesmoke;
+    background-color: black;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+
+}
+.test{
+    padding-top: 0;
+    padding-inline-start : 0px;
+}
+#zoneDeboite p{
+    font-size: 10px;
+}
+#zoneDeboite ul{
+    padding: 0;
+}
+#zoneDeboite ul li{
+    list-style: none;
+    margin-bottom: 15px;
+}
+/* zone pour voir la liste de mail */
+#zoneDeliste{
+    display: none;
+    width: 150px;
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+}
+#zoneDeliste ul li {
+    list-style: none;
+}
+
+/* zone qui affichera les mails pour les lire ou ecrire le mail*/
+#zoneQuichange{
+    display: none;
+    width: 300px;
+    background-color: darkgray;
+    font-family: sans-serif;
+}
+#pourEcrire{
+    display: none;
+}
+#pourLire{
+    display: none;
+}
