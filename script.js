@@ -518,6 +518,8 @@ function jjj () {
         });
     }
     moveFold();
+
+
 } jjj();
 
 
@@ -531,8 +533,7 @@ function existeDoc(){
     document.getElementById('petitDocument').className='folderDrop'
     document.getElementById('petitDocument').style.zIndex=priority;
     priority ++;
-    DocumentFragment.getElementById('folder').className ='openWhite'
-
+    document.getElementById('petitDocument').style.display='flex';
 }
 
 
@@ -540,9 +541,19 @@ function existePhoto(){
     document.getElementById('petitPhoto').className='folderDrop'
     document.getElementById('petitPhoto').style.zIndex=priority;
     priority ++;
-    DocumentFragment.getElementById('folder').className ='fa fa-folder-open  openWhite'
+    document.getElementById('petitPhoto').style.display='flex';
+
 
 }
+
+function existeNoodle(){
+    document.getElementById('noodle').className='folderDrop'
+    document.getElementById('noodle').style.zIndex=priority;
+    priority ++;
+    document.getElementById('noodle').style.display='flex';
+    console.log('yes')
+}
+
 
 function grandDoc(){
     let taille1= document.getElementById('petitDocument')
@@ -575,7 +586,7 @@ function grandDoc(){
 }
 
 function closeDoc(){
-    document.getElementById('petitDocument').className='close'
+    document.getElementById('petitDocument').style.display='none'
     document.getElementById('trash').style.display ='block';
     document.getElementById('tof').style.display ='block';
     document.getElementById('projo').style.display ='block';
@@ -615,7 +626,7 @@ function grandPhoto(){
 }
 
 function closePhoto(){
-    document.getElementById('petitPhoto').className='close'
+    document.getElementById('petitPhoto').style.display='none'
     document.getElementById('trash').style.display ='block';
     document.getElementById('tof').style.display ='block';
     document.getElementById('projo').style.display ='block';
@@ -623,3 +634,36 @@ function closePhoto(){
 
 }
 
+function grandInternet() {
+    let taille1= document.getElementById('noodle')
+    let taille2= document.getElementById('petitMillieu')
+
+    if(taille1.className != 'grand' && taille2.className != 'grandGauche'  )
+    {
+        taille1.className = 'grand'
+        taille2.className = 'grandMillieu'
+        document.getElementById('trash').style.display ='none';
+        document.getElementById('tof').style.display ='none';
+        document.getElementById('projo').style.display ='none';
+        document.getElementById('button').style.display ='none';
+    
+    
+    }else {
+        taille1.className = 'folderDrop'
+        taille2.className = 'millieu'
+        document.getElementById('trash').style.display ='block';
+        document.getElementById('tof').style.display ='block';
+        document.getElementById('projo').style.display ='block';
+        document.getElementById('button').style.display ='block';
+    }
+
+
+}
+function closeInternet(){
+    document.getElementById('noodle').style.display='none'
+    document.getElementById('trash').style.display ='block';
+    document.getElementById('tof').style.display ='block';
+    document.getElementById('projo').style.display ='block';
+    document.getElementById('button').style.display ='block';
+
+}

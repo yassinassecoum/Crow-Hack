@@ -230,6 +230,10 @@ div>.droite{
   
 }
 
+
+
+
+
 .txtInFolder{
   width: 80px;
   height: 112px;
@@ -258,6 +262,7 @@ div>.droite{
   transform: translate(-50%)
 }
 
+
 .folderDrop{
   position: absolute;
   top: 10px;
@@ -270,12 +275,27 @@ div>.droite{
   -ms-user-select: none;
   user-select: none;
   text-align: center;
-}
-
-
-.close{
+  height: 300px;
+  width: 400px;
   display: none;
 }
+
+.millieu{
+  width: 100%;
+  height: 270px;
+  margin-top: 30px;
+  background-color: rgb(37, 37, 37);
+}
+
+.grandMillieu{
+  width: 100%;
+  height:496px;
+  background-color: rgb(37, 37, 37);
+
+}
+
+
+
 /*Pour aggrandir*/
 .grand{
   height: 526px;
@@ -369,11 +389,11 @@ div>.droite{
 .taskbar{
   height: 50px;
   width: 864px;
-  background-color: rgba(20, 20, 20, 0.9);
+  background-color: rgba(20, 20, 20, 1);
   overflow: hidden;
   display: flex;
-  align-items: center;
-  z-index: 55555555555555555555555555555555555555555555555555555555555555;
+position: relative;
+
 
 }
 
@@ -382,7 +402,7 @@ div>.droite{
   height: 50px;
   display: flex;
   justify-content: space-between;
-  z-index: 5555555555555;
+  z-index: 5;
 }
 
 .icone{
@@ -394,10 +414,4 @@ div>.droite{
 .icone:hover{
   color: #fff;
   background: rgba(0, 0, 0, 0.25);
-}
-
-.openWhite{
-  color: #fff;
-  background: rgba(0, 0, 0, 0.25);
-
 }

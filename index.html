@@ -34,7 +34,7 @@
     <section class="center">
 
             <!--Dossier Document-->
-            <div class=" folderDrop" id="petitDocument" style="z-index: 5 ;">
+            <div class=" folderDrop " id="petitDocument" >
                     <div class="gauche" id="petitGauche">
                         <p class="sectionGauche">Bureau</p>
                         <p class="sectionGauche">Documents</p>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
             <!--Dossier photo-->
-            <div class=" folderDrop" id="petitPhoto" style="z-index: 5;">
+            <div class=" folderDrop" id="petitPhoto" >
                 <div class="gauche" id="petitGauche2">
                     <p class="sectionGauche">Bureau</p>
                     <p class="sectionGauche">Documents</p>
@@ -106,21 +106,39 @@
                     </div>
                 </div>
             </div>
+            <!--Page Internet-->
+            <div class=" folderDrop" id="noodle" >
+                <div class="millieu" id='petitMillieu'>
+                        <div class="window">
+                                <div class="square"  onclick="grandInternet()">
+                                        <i class="fas fa-expand squareBar"></i>
+                            </div>
+                            <div class="cross" onclick="closeInternet()">
+                                    <i class="fas fa-times crossBar"></i>
+                            </div>
+                        </div>
+                        <div class="bas">
+                            <h1>NOODLEEE</h1>
+                            <input type="text">
+                        </div>
+    
+                </div>
+            </div>
             <!-- Bureau-->
             <br>
-            <div id="button" ondblclick="existeDoc()" class="dossier doss1" style="z-index: 5" >
+            <div id="button" ondblclick="existeDoc()" class="dossier doss1" style="z-index:1" >
                 <p>Documents</p>
             </div>
             <br>
-            <div class="dossier doss2" ondblclick="existePhoto()"  style="z-index: 5" id="tof" >
+            <div class="dossier doss2" ondblclick="existePhoto()"  style="z-index: 1" id="tof" >
                 <p>photo</p>
             </div>
             <br>
-            <div class="dossier doss3"  style="z-index: 5" id="projo">
+            <div class="dossier doss3"  style="z-index: 1" id="projo">
                 <p>projet</p>
             </div>
             <br>
-            <div class="dossier doss4"  style="z-index:5 "  id="trash">
+            <div class="dossier doss4"  style="z-index:1 "  id="trash">
                 <p>corbeille</p>
             </div>
     
@@ -129,12 +147,13 @@
         </section>
         <section class="taskbar">
             <div class="task2">
-                <i class="fab fa-windows  icone" id="windows"></i>
-                <i class="fab fa-chrome icone" id="chrome"></i></i>
+                <i class="fab fa-windows  icone" id="windows" ></i>
+                <i class="fab fa-chrome icone" id="chrome" onclick="existeNoodle()"></i></i>
                 <i class=" fa fa-envelope icone" id="mail"></i>
                 <i class=" fa fa-folder-open icone" id="folder"></i>
             </div>
-        </section>
+
+                </section>
 </div>
 
     <p id="msg"></p>
