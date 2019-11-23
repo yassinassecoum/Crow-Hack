@@ -1,5 +1,5 @@
-const dialogue1 = [{ nom: 'Rachelle', dialogue: 'Bonjour, Puis-je vous aidé', image: 'img/avatars/receptionniste/rachelle.png' }, { nom: 'Crow', dialogue: 'Bonjour, je suis Crow, le nouveau stagiaire en sécurité', image: 'img/avatars/crow/crowJoyeux.png' },
-{ nom: 'Rachelle', dialogue: 'Ah c\'est donc vous que nous attendions. ', image: 'img/avatars/receptionniste/rachelle.png' }, { nom: 'Crow', dialogue: 'Oui effectivement j\'ai hate de commencer!', image: 'img/avatars/crow/crowJoyeux.png' }, { nom: 'Rachelle', dialogue: 'Allez y, quelqun viendra vous chercher !', image: 'img/avatars/receptionniste/rachelle.png' }];
+const dialogue1 = [{ nom: 'Rachelle', dialogue: 'Bonjour, Puis-je vous aidé', image: 'img/avatars/receptionniste/content.png' }, { nom: 'Crow', dialogue: 'Bonjour, je suis Crow, le nouveau stagiaire en sécurité', image: 'img/avatars/crow/content.png' },
+{ nom: 'Rachelle', dialogue: 'Ah c\'est donc vous que nous attendions. ', image: 'img/avatars/receptionniste/content.png' }, { nom: 'Crow', dialogue: 'Oui effectivement j\'ai hate de commencer!', image: 'img/avatars/crow/content.png' }, { nom: 'Rachelle', dialogue: 'Allez y, quelqun viendra vous chercher !', image: 'img/avatars/receptionniste/content.png' }];
 
 
 const dialogue2 = [{ nom: 'Hackeur', dialogue: 'comment allez vous', image: 'img/avatars/crow/crowJoyeux.png' }, { nom: 'Client', dialogue: 'bien bien', image: 'img/avatars/crow/crowJoyeux.png' }]
