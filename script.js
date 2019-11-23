@@ -92,8 +92,16 @@ window.onkeypress = function (e) {
                     moveLeft(canvasClient,contextClient,imageObjClient)
                     client.colone++;
                     test1()
-                    console.log(document.getElementById("12").childNodes[8])
+                    // console.log(document.getElementById("12").childNodes[8])
                     // document.getElementById("12").childNodes[8].style.backgroundImage="url('img/tiles/bureau-milieu-avec-pc.png')"
+                    setTimeout(function() {
+                        moveLr(canvasVictime, contextVictime, imageObjVictime, victime, {ligne: 13, colone:6})
+                    },500)
+                    setTimeout(function(){
+                        moveRight(canvasVictime, contextVictime, imageObjVictime)
+                        victime.colone++;
+                        test1()
+                    },1500)
                 }
                 
             }
