@@ -587,6 +587,10 @@ function grandDoc(){
 
 function closeDoc(){
     document.getElementById('petitDocument').style.display='none'
+    document.getElementById('petitDocument').className='folderDrop';
+    document.getElementById('petitGauche').className = 'gauche'
+    document.getElementById('petitDroite').className = 'droite'
+    document.getElementById('petitPetitDroite').className = 'petiteDroite'
     document.getElementById('trash').style.display ='block';
     document.getElementById('tof').style.display ='block';
     document.getElementById('projo').style.display ='block';
@@ -627,6 +631,10 @@ function grandPhoto(){
 
 function closePhoto(){
     document.getElementById('petitPhoto').style.display='none'
+    document.getElementById('petitPhoto').className='folderDrop';
+    document.getElementById('petitGauche2').className='gauche'
+    document.getElementById('petitDroite2').className = 'droite'
+    document.getElementById('petitPetitDroite2').className = 'petiteDroite'
     document.getElementById('trash').style.display ='block';
     document.getElementById('tof').style.display ='block';
     document.getElementById('projo').style.display ='block';
@@ -661,6 +669,8 @@ function grandInternet() {
 }
 function closeInternet(){
     document.getElementById('noodle').style.display='none'
+    document.getElementById('noodle').className='folderDrop';
+    document.getElementById('petitMillieu').className='millieu'
     document.getElementById('trash').style.display ='block';
     document.getElementById('tof').style.display ='block';
     document.getElementById('projo').style.display ='block';
