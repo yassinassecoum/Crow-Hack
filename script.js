@@ -17,10 +17,8 @@ function dialog(dialogue1) {
     blocage = true;
     setTimeout(function () {
         actuel = dialogue1;
-        document.getElementById('box').style.display = "block"
-        document.getElementById('perso').style.display = "block"
         ligne = document.getElementById(`ligne${k}`)
-        document.getElementById('perso').src = dialogue1[indexDialog].image
+        document.getElementById('perso').src ="img/avatars/receptionniste/rachelle.png" 
         let texte = dialogue1[indexDialog].nom + ' : ' + dialogue1[indexDialog].dialogue
         ligne.innerHTML += texte[j]
         j++
@@ -34,6 +32,7 @@ function dialog(dialogue1) {
 
         }
         else if (j <= texte.length - 1)
+        
             dialog(actuel)
 
     }, miliSecond)
@@ -45,8 +44,7 @@ function dialog(dialogue1) {
 window.onkeypress = function (e) {
     if (e.key.toLowerCase() == "w") {
         if (document.getElementById(`ligne${k}`).offsetWidth > 1) {
-            miliSecond = 1
-
+            miliSecond = 10
         }
 
         if (j >= actuel[indexDialog].dialogue.length - 1) {
@@ -59,31 +57,45 @@ window.onkeypress = function (e) {
                 k = 1
                 miliSecond = 50
                 dialog(actuel)
-            } else {
-                document.getElementById('box').style.display = "none"
-                document.getElementById('perso').style.display = "none"
-                indexDialog = 0
-                step++;
-                console.log("1",step)
-                j = 0;
-                blocage = false;
-
-                for (l = 1; l <= 3; l++) {
-                    document.getElementById(`ligne${l}`).innerHTML = ''
-                }
-            test12(actuel)
-            }else{
-                this.console.log(5555)
+            } 
+        else{
+                step++;         
+                console.log(5555)
+                console.log(step)
                 document.getElementById('container-box').style.display= "none"
-                if(t==0)scene1();
-                z = 0
-                t++;
-                j=0;
-        
-
+                blocage = false;
+                indexDialog=0;
+                
+                j=0
                 for(l=1; l<=3; l++){
                       document.getElementById(`ligne${l}`).innerHTML='' 
                   }
+                if(step==2){
+                console.log("step2 ok")
+                moveLr(canvasClient,contextClient,imageObjClient,client,block)
+                setTimeout(function(){
+                    moveLr(canvas,context,imageObj,mainCharacter,block1)
+                    moveLeft(canvasClient,contextClient,imageObjClient)
+                    setTimeout(function(){
+                        moveRight(canvas,context,imageObj)
+                        dialog(dialogue3)
+                        document.getElementById('container-box').style.display = 'flex'
+                        
+                    },1150)
+                    
+                },1000)
+                }
+                if(step==3){
+                    moveLeft(canvas,context,imageObj)
+                    mainCharacter.colone--;
+                    test()
+                    moveLeft(canvasClient,contextClient,imageObjClient)
+                    client.colone++;
+                    test1()
+                    console.log(document.getElementById("12").childNodes[8])
+                    // document.getElementById("12").childNodes[8].style.backgroundImage="url('img/tiles/bureau-milieu-avec-pc.png')"
+                }
+                
             }
         } else if (document.getElementById('ligne3').offsetWidth >= 620 && k === 3) {
             for (l = 1; l <= 3; l++) {
@@ -96,6 +108,7 @@ window.onkeypress = function (e) {
         }
     }
 }
+
 //yass
 document.body.onload = createElement;
 //creation array x y
@@ -345,6 +358,11 @@ var block = {
     ligne: 13,
     colone: 12
 }
+var block1 = {
+    prenom: "block",
+    ligne: 13,
+    colone: 11
+}
 
 
 //mapping complet background-image/48px
@@ -565,6 +583,7 @@ window.onkeydown = function (e) {
             setTimeout(() => {
                 moveLeft(canvas, context, imageObj)
                 dialog(dialogue1)
+                document.getElementById('container-box').style.display = 'flex'
                 console.log("2",step)
             }, 300)
 
@@ -577,12 +596,8 @@ window.onkeydown = function (e) {
             setTimeout(function (){
                 moveLeft(canvasClient,contextClient,imageObjClient);
                 dialog(dialogue2)
-                console.log("3",step)
-                if(step==2){
-                    console.log("step2 ok")
-                moveLr(canvasClient,contextClient,imageObjClient,client,block)
-            
-                }
+                console.log(dialog(dialogue2))
+                document.getElementById('container-box').style.display = 'flex'
 
             },2000)
             
@@ -602,8 +617,15 @@ window.onkeydown = function (e) {
             let interval = setInterval(function () {
                 moveUp(canvas, context, imageObj)
                 depart.ligne--;
-                test1()
-                m++
+                if(depart==mainCharacter){
+                    test()
+                    m++
+                }
+                else{
+                    test1();
+                    m++
+                }
+                
                 if (m == feet2+1) {
                     
                     clearInterval(interval)
@@ -615,8 +637,15 @@ window.onkeydown = function (e) {
             let interval = setInterval(function () {
                 moveDown(canvas, context, imageObj)
                 depart.ligne++;
-                test1()
-                m++
+                if(depart==mainCharacter){
+                    test()
+                    m++
+                }
+                else{
+                    test1();
+                    m++
+                }
+                
                 if (m == feet2+1) {
                     console.log("ok")
                     clearInterval(interval)
@@ -636,12 +665,20 @@ window.onkeydown = function (e) {
                 let interval = setInterval(function () {
                     moveLeft(canvas, context, imageObj);
                     depart.colone--;
-                    test1();
-                    m++
+                    if(depart==mainCharacter){
+                        test()
+                        m++
+                    }
+                    else{
+                        test1();
+                        m++
+                    }
+                    
+                
                     if (m == feet) {
                         clearInterval(interval)
                         m = 1
-                        setTimeout(() => {moveUd(canvasClient,contextClient,imageObjClient,depart,arrive)}, 50)
+                        setTimeout(() => {moveUd(canvas,context,imageObj,depart,arrive)}, 50)
                     }
                     console.log(m)
                 }, 100)
@@ -651,12 +688,19 @@ window.onkeydown = function (e) {
                 let interval = setInterval(function () {
                     moveRight(canvas, context, imageObj);
                     depart.colone++;
-                    test1();
-                    m++
+                    if(depart==mainCharacter){
+                        test()
+                        m++
+                    }
+                    else{
+                        test1();
+                        m++
+                    }
+                    
                     if (m == feet) {
                         clearInterval(interval)
                         m = 1
-                        setTimeout(() => {moveUd(canvasClient,contextClient,imageObjClient,depart,arrive)}, 50)
+                        setTimeout(() => {moveUd(canvas,context,imageObj,depart,arrive)}, 50)
                     }
                 }, 100)
             }

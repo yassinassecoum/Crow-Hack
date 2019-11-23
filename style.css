@@ -120,7 +120,6 @@ body{
   top:calc(12*48px);
   z-index: 10;
 }
-<<<<<<< HEAD
 #chaisedos3{
   position:absolute;
   left:calc(11*48px);
@@ -220,7 +219,6 @@ body{
   display: none;
 
 }
-=======
 
 /*----------------------------------INTERFACE PC----------------------------------------*/
 
@@ -234,7 +232,7 @@ body{
   overflow: hidden;
   background-color: #00476B;
   position: relative;
-  z-index: 55555555555555555555555;
+  z-index: -55555555555555555555555;
 
 }
 
@@ -482,7 +480,7 @@ div>.droite{
   overflow: hidden;
   display: flex;
 position: relative;
-
+z-index: -1000;
 
 }
 
@@ -523,4 +521,3 @@ position: relative;
 p {
   min-height: 1px;
 }
->>>>>>> cc8227a98993ecfb81b6d6276ff5f4863e147fa5
