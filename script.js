@@ -1,24 +1,27 @@
-const dialogue1 = [ { nom: 'Hackeur', dialogue: 'Bonjour, désolé pour le retard.', image: 'namek.png' }, { nom: 'Client', dialogue: 'Bonjour, pas de soucis ! l', image: 'tortue_geniale.png' },
-        { nom: 'Hackeur', dialogue: 'Suis moi. ', image: 'namek.png' }, { nom: 'Client', dialogue: ' pas de soucis ! t', image: 'tortue_geniale.png' }]
+const dialogue1 = [ { nom: 'Rachelle', dialogue: 'Bonjour, Puis-je vous aidé', image: 'img/avatars/receptionniste/rachelle.png' }, { nom: 'Crow', dialogue: 'Bonjour, je suis Crow, le nouveau stagiaire en sécurité', image: 'img/avatars/crow/crowJoyeux.png' },
+        { nom: 'Rachelle', dialogue: 'Ah c\'est donc vous que nous attendions. ', image: 'img/avatars/receptionniste/rachelle.png' }, { nom: 'Crow', dialogue: 'Oui effectivement j\'ai hate de commencer!', image: 'img/avatars/crow/crowJoyeux.png' },{ nom: 'Rachelle', dialogue: 'Allez y, quelqun viendra vous chercher !', image: 'img/avatars/receptionniste/rachelle.png' }];
+
+
 const dialogue2 = [{ nom: 'Hackeur', dialogue: 'comment allez vous', image: 'namek.png' }, { nom: 'Client', dialogue: 'bien bien', image: 'tortue_geniale.png' }]
 
 const dialogue3 = [{ nom: 'tt', dialogue: 'comment allez vous', image: 'namek.png' }, { nom: 'tt', dialogue: 'bien bien', image: 'tortue_geniale.png' }]
-        let ligne
         
-        let z = 0
+        let ligne
+        let indexDialog = 0
         let j=0
         let k = 1
         let miliSecond = 50
-        let t = 0
+        let step = 0
         var actuel;
-        function test12(dialogue1){
+        function dialog(dialogue1){
+            blocage=true;
             setTimeout(function (){
                 actuel=dialogue1;
                 document.getElementById('box').style.display= "block"
                 document.getElementById('perso').style.display ="block"
                 ligne = document.getElementById(`ligne${k}`)
-                document.getElementById('perso').src = dialogue1[z].image
-                let texte = dialogue1[z].nom + ' : ' + dialogue1[z].dialogue
+                document.getElementById('perso').src = dialogue1[indexDialog].image
+                let texte = dialogue1[indexDialog].nom + ' : ' + dialogue1[indexDialog].dialogue
                 ligne.innerHTML += texte[j]
                 j++
                 if(ligne.offsetWidth >= 620 && k!=3){ k++
@@ -30,7 +33,7 @@ const dialogue3 = [{ nom: 'tt', dialogue: 'comment allez vous', image: 'namek.pn
                    
                 }
                 else if(j <= texte.length-1)
-                test12(actuel)
+                dialog(actuel)
                 
             },miliSecond)
             
@@ -45,27 +48,26 @@ const dialogue3 = [{ nom: 'tt', dialogue: 'comment allez vous', image: 'namek.pn
                     
                 }
                 
-                if(j >= actuel[z].dialogue.length-1){
+                if(j >= actuel[indexDialog].dialogue.length-1){
                     for(l=1; l<=3; l++){
                     document.getElementById(`ligne${l}`).innerHTML=''
                 }
-                if(actuel[z+1]){
+                if(actuel[indexDialog+1]){
                 j=0
-                z++
+                indexDialog++
                 k=1
                 miliSecond = 50
-                if(t==2){
-                    if(z ==1)scene1();
+                if(step==2){
+                console.log("");
                 }
-            test12(actuel)
+            dialog(actuel)
             }else{
                 document.getElementById('box').style.display= "none"
                 document.getElementById('perso').style.display ="none"
-                if(t==0)scene1();
-                z = 0
-                t++;
+                indexDialog = 0
+                step++;
                 j=0;
-        
+                blocage=false;
 
                 for(l=1; l<=3; l++){
                       document.getElementById(`ligne${l}`).innerHTML='' 
@@ -77,7 +79,7 @@ const dialogue3 = [{ nom: 'tt', dialogue: 'comment allez vous', image: 'namek.pn
                   }
                   k=1
                   miliSecond =50
-            test12(actuel)
+            dialog(actuel)
             
                 }
             }
@@ -85,6 +87,9 @@ const dialogue3 = [{ nom: 'tt', dialogue: 'comment allez vous', image: 'namek.pn
 //yass
 document.body.onload = createElement;
 //creation array x y
+        let firstTime=true;
+        let secondTime=true;
+        let blocage=false;
         const array = [];
         const y=31;
         const x=31;
@@ -108,7 +113,7 @@ var imageObjPng = new Image();
     var destY = canvasPng.height / 2 - destHeight / 2;
     contextPng.drawImage(imageObjPng, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
   };
-  imageObjPng.src = 'img/tiles/biatch.png';
+  imageObjPng.src = 'img/avatars/receptionniste/body.png';
 
   
 // decoupage au chargement de la page du PERSO :
@@ -129,6 +134,100 @@ var imageObj = new Image();
     context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
   };
   imageObj.src = 'img/tiles/hero.png';
+
+  //canvas Client
+
+  // decoupage au chargement de la page du client :
+var canvasClient = document.getElementById('canvasClient');
+var contextClient = canvasClient.getContext('2d');
+var imageObjClient = new Image();
+
+  imageObjClient.onload = function() {
+    // draw cropped image
+    var sourceX = 48;
+    var sourceY = 0;
+    var sourceWidth = 48;
+    var sourceHeight = 48;
+    var destWidth = sourceWidth;
+    var destHeight = sourceHeight;
+    var destX = canvasClient.width / 2 - destWidth / 2;
+    var destY = canvasClient.height / 2 - destHeight / 2;
+    contextClient.drawImage(imageObjClient, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+  };
+  imageObjClient.src = 'img/avatars/client/body.png';
+    // decoupage au chargement de la page du victime :
+var canvasVictime = document.getElementById('canvasVictime');
+var contextVictime = canvasVictime.getContext('2d');
+var imageObjVictime = new Image();
+
+  imageObjVictime.onload = function() {
+    // draw cropped image
+    var sourceX = 48;
+    var sourceY = 0;
+    var sourceWidth = 48;
+    var sourceHeight = 48;
+    var destWidth = sourceWidth;
+    var destHeight = sourceHeight;
+    var destX = canvasVictime.width / 2 - destWidth / 2;
+    var destY = canvasVictime.height / 2 - destHeight / 2;
+    contextVictime.drawImage(imageObjVictime, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+  };
+  imageObjVictime.src = 'img/avatars/cible/body.png';
+    // decoupage au chargement de la page du Hugues :
+    var canvasHugues = document.getElementById('canvasHugues');
+    var contextHugues = canvasHugues.getContext('2d');
+    var imageObjHugues = new Image();
+    
+      imageObjHugues.onload = function() {
+        // draw cropped image
+        var sourceX = 48;
+        var sourceY = 0;
+        var sourceWidth = 48;
+        var sourceHeight = 48;
+        var destWidth = sourceWidth;
+        var destHeight = sourceHeight;
+        var destX = canvasHugues.width / 2 - destWidth / 2;
+        var destY = canvasHugues.height / 2 - destHeight / 2;
+        contextHugues.drawImage(imageObjHugues, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+      };
+      imageObjHugues.src = 'img/avatars/employe2/body.png';
+
+          // decoupage au chargement de la page du Laura :
+    var canvasLaura = document.getElementById('canvasLaura');
+    var contextLaura = canvasLaura.getContext('2d');
+    var imageObjLaura = new Image();
+    
+      imageObjLaura.onload = function() {
+        // draw cropped image
+        var sourceX = 96;
+        var sourceY = 144;
+        var sourceWidth = 48;
+        var sourceHeight = 48;
+        var destWidth = sourceWidth;
+        var destHeight = sourceHeight;
+        var destX = canvasLaura.width / 2 - destWidth / 2;
+        var destY = canvasLaura.height / 2 - destHeight / 2;
+        contextLaura.drawImage(imageObjLaura, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+      };
+      imageObjLaura.src = 'img/avatars/employe1/body.png';
+                // decoupage au chargement de la page du Marcus :
+    var canvasMarcus = document.getElementById('canvasMarcus');
+    var contextMarcus = canvasMarcus.getContext('2d');
+    var imageObjMarcus = new Image();
+    
+      imageObjMarcus.onload = function() {
+        // draw cropped image
+        var sourceX = 48;
+        var sourceY = 0;
+        var sourceWidth = 48;
+        var sourceHeight = 48;
+        var destWidth = sourceWidth;
+        var destHeight = sourceHeight;
+        var destX = canvasMarcus.width / 2 - destWidth / 2;
+        var destY = canvasMarcus.height / 2 - destHeight / 2;
+        contextMarcus.drawImage(imageObjMarcus, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+      };
+      imageObjMarcus.src = 'img/avatars/employe3/body.png';
 
 //variable antiRun
   var allow=true;
@@ -193,16 +292,42 @@ var imageObj = new Image();
 //creation object perso + positionnement
 var mainCharacter={
     prenom : "Hero",
-    ligne:4,
-    colone:4
+    ligne:28,
+    colone:8
 }
 //ligne et y -1 par rapport au main
-var gadji={
-    prenom : "png",
-    ligne:8,
+var reception={
+    prenom : "Rachelle",
+    ligne:25,
     colone:5,
-    use:"gadji"
+    use:"reception"
 }
+var client={
+    prenom:"Laurent",
+    ligne:13,
+    colone:11
+}
+var victime={
+    prenom:"Mike",
+    ligne:8,
+    colone:9
+}
+var hugues={
+    prenom:"Hugues",
+    ligne:8,
+    colone:17
+}
+var laura={
+    prenom:"Laura",
+    ligne:16,
+    colone:27
+}
+var marcus={
+    prenom:"Marcus",
+    ligne:15,
+    colone:27
+}
+
 //mapping complet background-image/48px
 const tiles = [[{img:"url('img/tiles/coin.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Cloison_double-coins.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/Bordure_Continue.png')",free:false},{img:"url('img/tiles/coin1.png')",free:false}],//ligne1
 [{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/evilcorp-hautgauche.png')",free:false},{img:"url('img/tiles/evilcorp-hautdroit.png')",free:false},{img:"url('img/tiles/Escalier_Haut.png')",free:true},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:true},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Cloison_millieu1.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//ligne2
@@ -211,12 +336,12 @@ const tiles = [[{img:"url('img/tiles/coin.png')",free:false},{img:"url('img/tile
 [{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-face.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-face.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-face.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/Cloison_millieu1.png')",free:false},{img:"url('img/tiles/toit-serveur.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/serveur-moyen-haut.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/serveur-moyen-haut.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/toit-serveur-mirror.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne 5
 [{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/bureau-arriere-coingauche.png')",free:false},{img:"url('img/tiles/bureau-arriere-milieu.png')",free:false},{img:"url('img/tiles/bureau-arriere-coindroit.png')",free:false},{img:"url('img/tiles/bureau-arriere-coingauche.png')",free:false},{img:"url('img/tiles/bureau-arriere-milieu-tablette.png')",free:false},{img:"url('img/tiles/bureau-arriere-coindroit.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/bureau-arriere-coingauche.png')",free:false},{img:"url('img/tiles/bureau-arriere-milieu.png')",free:false},{img:"url('img/tiles/bureau-arriere-coindroit.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/Cloison_millieu1.png')",free:false},{img:"url('img/tiles/toit-serveur.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/serveur-petit-1.png')",free:false},{img:"url('img/tiles/serveur-moyen-bas.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/serveur-moyen-bas.png')",free:false},{img:"url('img/tiles/serveur-petit-1.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/toit-serveur-mirror.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne6
 [{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/bureau-cote-gauche.png')",free:false},{img:"url('img/tiles/bureau-milieu-avec-pc.png')",free:false},{img:"url('img/tiles/bureau-cote-droit.png')",free:false},{img:"url('img/tiles/bureau-cote-gauche.png')",free:false},{img:"url('img/tiles/bureau-milieu-avec-pcecran.png')",free:false},{img:"url('img/tiles/bureau-avec-tourpc.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/bureau-cote-gauche.png')",free:false},{img:"url('img/tiles/bureau-milieu-avec-pc.png')",free:false},{img:"url('img/tiles/bureau-cote-droit.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/Cloison_millieu1.png')",free:false},{img:"url('img/tiles/toit-serveur.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/serveur-petit-2.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/serveur-petit-2.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/toit-serveur-mirror.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne7
-[{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-dos.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-dos.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/Cloison_millieu1.png')",free:false},{img:"url('img/tiles/toit-serveur.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/toit-serveur-mirror.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne8
+[{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/Cloison_millieu1.png')",free:false},{img:"url('img/tiles/toit-serveur.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/sol.png')",free:false},{img:"url('img/tiles/toit-serveur-mirror.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne8
 [{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/cloisonT.png')",free:false},{img:"url('img/tiles/Cloison-Milieu.png')",free:false},{img:"url('img/tiles/Cloison-Milieu.png')",free:false},{img:"url('img/tiles/Cloison-Milieu.png')",free:false},{img:"url('img/tiles/Cloison-fin1.png')",free:false},{img:"url('img/tiles/dessus-porte.png')",free:false},{img:"url('img/tiles/Cloison-fin.png')",free:false},{img:"url('img/tiles/Cloison-Milieu.png')",free:false},{img:"url('img/tiles/Cloison-Milieu.png')",free:false},{img:"url('img/tiles/Cloison-Milieu.png')",free:false},{img:"url('img/tiles/cloison-gap.png')",free:false}],//fin ligne9
 [{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-face.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-face.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-face.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/Cloison_millieu1.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/porte-haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne10
 [{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/bureau-arriere-coingauche.png')",free:false},{img:"url('img/tiles/bureau-arriere-milieu.png')",free:false},{img:"url('img/tiles/bureau-arriere-coindroit.png')",free:false},{img:"url('img/tiles/bureau-arriere-coingauche.png')",free:false},{img:"url('img/tiles/bureau-arriere-milieu.png')",free:false},{img:"url('img/tiles/bureau-arriere-coindroit.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/bureau-arriere-coingauche.png')",free:false},{img:"url('img/tiles/bureau-arriere-milieu.png')",free:false},{img:"url('img/tiles/bureau-arriere-coindroit-tablette.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/Cloison_millieu1.png')",free:false},{img:"url('img/tiles/Mur_Bas.png')",free:false},{img:"url('img/tiles/Mur_Bas.png')",free:false},{img:"url('img/tiles/Mur_Bas.png')",free:false},{img:"url('img/tiles/Mur_Bas.png')",free:false},{img:"url('img/tiles/porte-bas.png')",free:false},{img:"url('img/tiles/Mur_Bas.png')",free:false},{img:"url('img/tiles/Mur_Bas.png')",free:false},{img:"url('img/tiles/Mur_Bas.png')",free:false},{img:"url('img/tiles/Mur_Bas.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne11
 [{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/bureau-cote-gauche.png')",free:false},{img:"url('img/tiles/bureau-milieu.png')",free:false},{img:"url('img/tiles/bureau-cote-droit.png')",free:false},{img:"url('img/tiles/bureau-cote-gauche.png')",free:false},{img:"url('img/tiles/bureau-milieu-avec-pc.png')",free:false},{img:"url('img/tiles/bureau-cote-droit.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/bureau-cote-gauche.png')",free:false},{img:"url('img/tiles/bureau-milieu-avec-pcecran.png')",free:false},{img:"url('img/tiles/bureau-avec-tourpc.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/cloi.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-side1.png')",free:false},{img:"url('img/tiles/bureau-side-haut-ordi.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne12
-[{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-dos.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-dos.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/bureau-side-bas-feuille.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne13
+[{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/Mur_Haut.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/bureau-side-bas-feuille.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne13
 [{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/Mur_Bas.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol-et-plante.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne14
 [{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/chaise-side1.png')",free:false},{img:"url('img/tiles/bureau-side-haut-ordi.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne15
 [{img:"url('img/tiles/bordure_left.png')",free:false},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/sol.png')",free:true},{img:"url('img/tiles/bureau-side-bas.png')",free:false},{img:"url('img/tiles/bordure_right.png')",free:false}],//fin ligne16
@@ -277,17 +402,29 @@ calc.style.left='calc(50% - '+((mainCharacter.colone-middleX)*48)+'px)';
 test();
 //positionnement png spawn
 function test1(){
-
-    png.style.top='48'*gadji.ligne+'px';
-    png.style.left='48'*gadji.colone+'px';
+    png.style.top='48'*reception.ligne+'px';
+    png.style.left='48'*reception.colone+'px';
+    canvasClient.style.top='48'*client.ligne+'px';
+    canvasClient.style.left='48'*client.colone+'px';
+    canvasVictime.style.top='48'*victime.ligne+'px';
+    canvasVictime.style.left='48'*victime.colone+'px';
+    canvasHugues.style.top='48'*hugues.ligne+'px';
+    canvasHugues.style.left='48'*hugues.colone+'px';
+    canvasLaura.style.top='48'*laura.ligne+'px';
+    canvasLaura.style.left='48'*laura.colone+'px';
+    canvasMarcus.style.top='48'*marcus.ligne+'px';
+    canvasMarcus.style.left='48'*marcus.colone+'px';
 }
 test1();
 //resize map for png
 //direction
+
 window.onkeydown=function(e){
+    if(blocage==false){
+        console.log(blocage)
     switch(e.key){
         case "ArrowUp":
-                if((tiles[mainCharacter.ligne-2][mainCharacter.colone-1].free) &&  (gadji.ligne!=mainCharacter.ligne-1 || gadji.colone!=mainCharacter.colone)){
+                if((tiles[mainCharacter.ligne-2][mainCharacter.colone-1].free) &&  (reception.ligne!=mainCharacter.ligne-1 || reception.colone!=mainCharacter.colone)){
                     if(allow){
                         allow=false;
                         mainCharacter.ligne--;
@@ -299,8 +436,8 @@ window.onkeydown=function(e){
                     context.clearRect(0, 0, canvas.width, canvas.height);
                     context.drawImage(imageObj, 48, 144, 48, 48, 0, 0, 48, 48);
                 }
-                    if(tiles[mainCharacter.ligne-2][mainCharacter.colone-1].use ||  (gadji.ligne==mainCharacter.ligne-1 && gadji.colone==mainCharacter.colone) ){
-                        useObject=((gadji.ligne==mainCharacter.ligne-1 && gadji.colone==mainCharacter.colone) ? gadji.use : tiles[mainCharacter.ligne-2][mainCharacter.colone-1].use);
+                    if(tiles[mainCharacter.ligne-2][mainCharacter.colone-1].use ||  (reception.ligne==mainCharacter.ligne-1 && reception.colone==mainCharacter.colone) ){
+                        useObject=((reception.ligne==mainCharacter.ligne-1 && reception.colone==mainCharacter.colone) ? reception.use : tiles[mainCharacter.ligne-2][mainCharacter.colone-1].use);
                         document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
                         setTimeout(function(){
                             document.getElementById("msg").innerHTML = "";
@@ -310,7 +447,7 @@ window.onkeydown=function(e){
                     }
                    break;
         case "ArrowDown":
-                if(tiles[mainCharacter.ligne][mainCharacter.colone-1].free &&  (gadji.ligne!=mainCharacter.ligne+1 || gadji.colone!=mainCharacter.colone)){
+                if(tiles[mainCharacter.ligne][mainCharacter.colone-1].free &&  (reception.ligne!=mainCharacter.ligne+1 || reception.colone!=mainCharacter.colone)){
                     if(allow){
                         allow=false;
                         mainCharacter.ligne++;
@@ -322,8 +459,8 @@ window.onkeydown=function(e){
                     context.clearRect(0, 0, canvas.width, canvas.height);
                     context.drawImage(imageObj, 48, 0, 48, 48, 0, 0, 48, 48);
                 }
-                if(tiles[mainCharacter.ligne][mainCharacter.colone-1].use ||  (gadji.ligne==mainCharacter.ligne+1 && gadji.colone==mainCharacter.colone)){
-                    useObject=((gadji.ligne==mainCharacter.ligne+1 && gadji.colone==mainCharacter.colone) ? gadji.use : tiles[mainCharacter.ligne][mainCharacter.colone-1].use);
+                if(tiles[mainCharacter.ligne][mainCharacter.colone-1].use ||  (reception.ligne==mainCharacter.ligne+1 && reception.colone==mainCharacter.colone)){
+                    useObject=((reception.ligne==mainCharacter.ligne+1 && reception.colone==mainCharacter.colone) ? reception.use : tiles[mainCharacter.ligne][mainCharacter.colone-1].use);
                     document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
                     setTimeout(function(){
                         document.getElementById("msg").innerHTML = "";
@@ -333,7 +470,7 @@ window.onkeydown=function(e){
                 }
                break;
         case "ArrowLeft":
-                if(tiles[mainCharacter.ligne-1][mainCharacter.colone-2].free &&  (gadji.ligne!=mainCharacter.ligne || gadji.colone!=mainCharacter.colone-1)){
+                if(tiles[mainCharacter.ligne-1][mainCharacter.colone-2].free &&  (reception.ligne!=mainCharacter.ligne || reception.colone!=mainCharacter.colone-1)){
                     if(allow){
                         allow=false;
                         mainCharacter.colone--;
@@ -345,8 +482,8 @@ window.onkeydown=function(e){
                     context.clearRect(0, 0, canvas.width, canvas.height);
                     context.drawImage(imageObj, 48, 48, 48, 48, 0, 0, 48, 48);
                 }
-                if(tiles[mainCharacter.ligne-1][mainCharacter.colone-2].use ||  (gadji.ligne==mainCharacter.ligne && gadji.colone==mainCharacter.colone-1)){
-                    useObject=((gadji.ligne==mainCharacter.ligne && gadji.colone==mainCharacter.colone-1) ? gadji.use : tiles[mainCharacter.ligne-1][mainCharacter.colone-2].use);
+                if(tiles[mainCharacter.ligne-1][mainCharacter.colone-2].use ||  (reception.ligne==mainCharacter.ligne && reception.colone==mainCharacter.colone-1)){
+                    useObject=((reception.ligne==mainCharacter.ligne && reception.colone==mainCharacter.colone-1) ? reception.use : tiles[mainCharacter.ligne-1][mainCharacter.colone-2].use);
                     document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
                     setTimeout(function(){
                         document.getElementById("msg").innerHTML = "";
@@ -356,7 +493,7 @@ window.onkeydown=function(e){
                 }
                break;
         case "ArrowRight":
-                if(tiles[mainCharacter.ligne-1][mainCharacter.colone].free && (gadji.ligne!=mainCharacter.ligne || gadji.colone!=mainCharacter.colone+1)){
+                if(tiles[mainCharacter.ligne-1][mainCharacter.colone].free && (reception.ligne!=mainCharacter.ligne || reception.colone!=mainCharacter.colone+1)){
                     if(allow){
                         allow=false;
                         mainCharacter.colone++;
@@ -367,8 +504,8 @@ window.onkeydown=function(e){
                     context.clearRect(0, 0, canvas.width, canvas.height);
                     context.drawImage(imageObj, 48, 96, 48, 48, 0, 0, 48, 48);
                 }
-                if(tiles[mainCharacter.ligne-1][mainCharacter.colone].use ||  (gadji.ligne==mainCharacter.ligne && gadji.colone==mainCharacter.colone+1)){
-                    useObject=((gadji.ligne==mainCharacter.ligne && gadji.colone==mainCharacter.colone+1) ? gadji.use : tiles[mainCharacter.ligne-1][mainCharacter.colone].use);
+                if(tiles[mainCharacter.ligne-1][mainCharacter.colone].use ||  (reception.ligne==mainCharacter.ligne && reception.colone==mainCharacter.colone+1)){
+                    useObject=((reception.ligne==mainCharacter.ligne && reception.colone==mainCharacter.colone+1) ? reception.use : tiles[mainCharacter.ligne-1][mainCharacter.colone].use);
                     document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
                     setTimeout(function(){
                         document.getElementById("msg").innerHTML = "";
@@ -382,53 +519,71 @@ window.onkeydown=function(e){
                 switch(useObject){
                     case "ordinateur" :
                         break;
-                    case "arbre" :
-                       
-                        break;
-                    case "gadji" :
-                        console.log("blabla");
-                       if(t == 0){
-                           test12(dialogue1)
-                       }else if(t==1){
-                           test12(dialogue2);
-                        }else if(t==2){
-                            test12(dialogue3)
-                            console.log(z, "z")
+                    case "reception" :
+                       if(step == 0){
+                           dialog(dialogue1)
+                       }else if(step==1){
+                           dialog(dialogue2);
+                        }else if(step==2){
+                            dialog(dialogue3)
                             
                         }
-
                 }
             }           
         default:
             break;       
+    
+        }
+        console.log(mainCharacter)
+        if(mainCharacter.ligne==25 && firstTime==true){
+            blocage=true;
+            moveRight(myCanvasPng,contextPng,imageObjPng);
+            document.getElementById('exclam').style.display = 'block'
+            setTimeout(()=> {document.getElementById('exclam').style.display = ''},500)
+            setTimeout(() => {moveLeft(canvas,context,imageObj)
+                dialog(dialogue1)
+            }, 300)
+            
+            firstTime=false;
+        }
+        if(mainCharacter.ligne==18 && secondTime==true){
+            blocage=true;
+            moveDown(canvasClient,contextClient,imageObjClient);
+            client.ligne++;
+            test1()
+            this.setTimeout(function(){
+                moveDown(canvasClient,contextClient,imageObjClient);
+                client.ligne++;
+                test1()
+            },50)
+        }
     }
-    console.log(mainCharacter);
-}
-function scene1(){
+    }
 
+function animation1(){
     moveUp(canvasPng,contextPng,imageObjPng);
-    gadji.ligne--;
+    reception.ligne--;
     test1();
     mainCharacter.ligne--;
     moveUp(canvas,context,imageObj);
     test();
     setTimeout(function(){
         moveUp(canvasPng,contextPng,imageObjPng);
-        gadji.ligne--;
+        reception.ligne--;
         test1();
         mainCharacter.ligne--;
         moveUp(canvas,context,imageObj);
         test();
         setTimeout(function(){
             moveUp(canvasPng,contextPng,imageObjPng);
-            gadji.ligne--;
+            reception.ligne--;
             test1();
             mainCharacter.ligne--;
             moveUp(canvas,context,imageObj);
             test();
             setTimeout(function(){
                 moveRight(canvasPng,contextPng,imageObjPng);
-                gadji.colone++;
+                reception.colone++;
                 test1();
                 mainCharacter.colone++;
                 moveRight(canvas,context,imageObj);
@@ -441,5 +596,5 @@ function scene1(){
 
 
 }
-console.log(gadji)
+console.log(reception)
 
