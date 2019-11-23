@@ -22,9 +22,11 @@ let miliSecond = 50
 let step = 0
 var actuel;
 function dialog(dialogue1) {
+    console.log('je suis la')
     blocage = true;
     setTimeout(function () {
         actuel = dialogue1;
+        document.getElementById('container-box').style.display='flex'
         ligne = document.getElementById(`ligne${k}`)
         document.getElementById('perso').src =dialogue1[indexDialog].image
         let texte = dialogue1[indexDialog].nom + ' : ' + dialogue1[indexDialog].dialogue
@@ -872,6 +874,7 @@ function existeDoc(){
     document.getElementById('petitDocument').style.zIndex=priority;
     priority ++;
     document.getElementById('petitDocument').style.display='flex';
+    dialog(dialogue6)
 }
 
 
@@ -880,7 +883,7 @@ function existePhoto(){
     document.getElementById('petitPhoto').style.zIndex=priority;
     priority ++;
     document.getElementById('petitPhoto').style.display='flex';
-
+    dialog(dialogue7)
 
 }
 
