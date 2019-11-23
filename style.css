@@ -98,12 +98,7 @@ body{
     color:Black;
     font-size: 32px;
 }
-#chaisedos{
-  position:absolute;
-  left:calc(8*48px);
-  top:calc(7*48px);
-  z-index: 10;
-}
+
 #calc{
   position: absolute;
   left:50%;
@@ -113,12 +108,116 @@ body{
   height:calc(31*48px);
   width:calc(31*48px);
   z-index: 5;
+}#chaisedos{
+  position:absolute;
+  left:calc(8*48px);
+  top:calc(7*48px);
+  z-index: 10;
 }
 #chaisedos2{
   position:absolute;
   left:calc(8*48px);
   top:calc(12*48px);
   z-index: 10;
+}
+#chaisedos3{
+  position:absolute;
+  left:calc(11*48px);
+  top:calc(7*48px);
+  z-index: 10;
+}
+#chaisedos4{
+  position:absolute;
+  left:calc(16*48px);
+  top:calc(7*48px);
+  z-index: 10;
+}
+#chaisedos5{
+  position:absolute;
+  left:calc(11*48px);
+  top:calc(12*48px);
+  z-index: 10;
+}
+#chaisedos6{
+  position:absolute;
+  left:calc(16*48px);
+  top:calc(12*48px);
+  z-index: 10;
+}
+#canvasClient{
+  background-size:40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position:absolute;
+  height:48px;
+  width:48px;
+  left:0;
+  top:0;
+  transform:translate(-100%,-100%);
+  transition: 0.2s linear;
+
+}
+#canvasVictime{
+  background-size:40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position:absolute;
+  height:48px;
+  width:48px;
+  left:0;
+  top:0;
+  transform:translate(-100%,-100%);
+  transition: 0.2s linear;
+
+}
+#canvasHugues{
+  background-size:40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position:absolute;
+  height:48px;
+  width:48px;
+  left:0;
+  top:0;
+  transform:translate(-100%,-100%);
+  transition: 0.2s linear;
+
+}
+#canvasLaura{
+  background-size:40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position:absolute;
+  height:48px;
+  width:48px;
+  left:0;
+  top:0;
+  transform:translate(-100%,-100%);
+  transition: 0.2s linear;
+
+}
+#canvasMarcus{
+  background-size:40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position:absolute;
+  height:48px;
+  width:48px;
+  left:0;
+  top:0;
+  transform:translate(-100%,-100%);
+  transition: 0.2s linear;
+
+}
+#exclam{
+  position:absolute;
+  border:1px black;
+  top:1124px;
+  left:14%;
+  font-size: 30px;
+  color: white;
+  display: none;
+
 }
 
 /*----------------------------------INTERFACE PC----------------------------------------*/
@@ -133,7 +232,7 @@ body{
   overflow: hidden;
   background-color: #00476B;
   position: relative;
-  z-index: 55555555555555555555555;
+  z-index: -55555555555555555555555;
 
 }
 
@@ -380,7 +479,7 @@ div>.droite{
   overflow: hidden;
   display: flex;
 position: relative;
-
+z-index: -1000;
 
 }
 
