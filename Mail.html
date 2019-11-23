@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="mail-style.css">
+  <title>Mail</title>
+</head>
+<body>
+
+<div id="allmight">
+
+    <div id="zoneDeboite">
+        <p>"jesuisladressemail@amettre.ici"</p>
+        <ul>
+            <li><button onclick="envoiMail()">Envoyer un mail</button></li>
+            <li><button onclick="voirBmail()">Boite Reception</button></li>
+            <li><button onclick="voirBspam()">Courrier Spam</button></li>
+        </ul>
+    </div>
+<!-- zone affichant la liste de mail / spams-->
+    <div id="zoneDeliste">
+        <!-- liste de mail-->
+        <div id="voirboiteMail">
+            <ul class="test">
+                <li><button onclick="seeMail()"><p>Mail 1</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeMail()"><p>Mail 2</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeMail()"><p>Mail 3</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeMail()"><p>Mail 4</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeMail()"><p>Mail 5</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeMail()"><p>Mail 6</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeMail()"><p>Mail 7</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeMail()"><p>Mail 8</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeMail()"><p>Mail 9</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeMail()"><p>Mail 10</p><p>lorem ispum dolor come dono est ....</p></button></li>
+            </ul>
+        </div>
+<!-- liste de mail spam-->
+        <div id="voirboiteSpam">
+            <ul class="test">
+                <li><button onclick="seeSpam()"><p>Spam 1</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeSpam()"><p>Spam 2</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeSpam()"><p>Spam 3</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeSpam()"><p>Spam 4</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeSpam()"><p>Spam 5</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeSpam()"><p>Spam 6</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeSpam()"><p>Spam 7</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeSpam()"><p>Spam 8</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeSpam()"><p>Spam 9</p><p>lorem ispum dolor come dono est ....</p></button></li>
+                <li><button onclick="seeSpam()"><p>Spam 10</p><p>lorem ispum dolor come dono est ....</p></button></li>
+            </ul>
+        </div>
+    </div>
+<!-- Zone qui change en fonction de la demande : voir le mail/spam ou la zone ou on ecrit un mail-->
+    <div id="zoneQuichange">
+        <div id="pourEcrire">
+            <p id="toDestinataire"></p>
+            <p id="mailEcrit1"></p>
+            <p id="mailEcrit2"></p>
+            <p id="mailEcrit3"></p>
+        </div>
+        <div id="pourLire">
+            <p id="envoyeur">Envoyeur : Quelqu'un</p>
+            <p id="lemail">Le message qui est ecrit ici, qui sera long et je l'espère sans fautes d'orthographe parce que bon c'est pas cool, c'est moche et ca fait pas professionnel du tout.</p>
+        </div>
+
+    </div>
+
+</div>
+<script>
+let a = 0 ;
+let adresse = "receptiondujeu@crowhack.oq";
+let o = 0;
+let objt  = "Hey salut, tu es la 1 000 000 ième personne a qui j'envoie un courrier malveillant du coup je te récompense avec non pas un mais DEUX malware différents ! Haha aller salut et amuse toi bien. Signé : Moi";
+let pourercrire = document.getElementById("mailEcrit1")
+var test=false;
+// ------------------ pour afficher l'endroit ou on ecrit les mails
+function envoiMail(){
+    document.getElementById("zoneQuichange").style.display = "block";
+    document.getElementById("pourEcrire").style.display = "block";
+    document.getElementById("pourLire").style.display = "none";
+    document.getElementById("zoneDeliste").style.display = "none";
+    ecrire(); 
+}
+// ---------------- permet de faire une animation d'ecriture de l'adresse mail ----------
+function ecrire(){
+    setTimeout( function (){
+        email = document.getElementById('toDestinataire');
+        console.log(email)
+        if(adresse.length-1>=a){
+            email.innerHTML += adresse[a];
+        }
+        pourercrire.innerHTML += objt[a];
+        a++;
+        if(a<= objt.length-1){
+            envoiMail()           
+        } 
+    },50);       
+}
+// ---------------- pour l'ecriture de l'email lui même -----------------
+function ecrire1(){
+        console.log(email)
+        pourercrire.innerHTML += objt[o];
+        o++;
+        if(o<= objt.length-1){
+           envoiMail()         
+        }         
+}
+// ------------------ pour afficher la liste des mails --------------------
+function voirBmail(){
+    document.getElementById("zoneDeliste").style.display = "block";
+    document.getElementById("voirboiteMail").style.display = "block";
+    document.getElementById("voirboiteSpam").style.display = "none";
+    document.getElementById("zoneQuichange").style.display = "none";
+    document.getElementById("pourEcrire").style.display = "none";
+    document.getElementById("pourLire").style.display = "none";
+}
+//affiche la boite des spams
+function voirBspam(){
+    document.getElementById("zoneDeliste").style.display = "block";
+    document.getElementById("voirboiteSpam").style.display = "block";
+    document.getElementById("voirboiteMail").style.display = "none";
+    document.getElementById("zoneQuichange").style.display = "none";
+    document.getElementById("pourEcrire").style.display = "none";
+    document.getElementById("pourLire").style.display = "none";
+}
+// affiche le mail sélectionné
+function seeMail(){
+    document.getElementById("voirboiteMail").style.display = "block";
+    document.getElementById("zoneQuichange").style.display = "block";
+    document.getElementById("pourLire").style.display = "block";
+    document.getElementById("pourEcrire").style.display = "none";
+    document.getElementById("voirboiteSpam").style.display = "none";
+}
+// affiche le mail de type spam sélectionné
+function seeSpam(){
+    document.getElementById("voirboiteSpam").style.display = "block";
+    document.getElementById("zoneQuichange").style.display = "block";
+    document.getElementById("pourLire").style.display = "block";
+    document.getElementById("pourEcrire").style.display = "none";
+    document.getElementById("voirboiteMail").style.display = "none";
+}
+
+</script>
+</body>
+</html>

@@ -553,7 +553,14 @@ function existeNoodle(){
     document.getElementById('noodle').style.display='flex';
     console.log('yes')
 }
-
+// ------------------   fonction pour afficher le mail 
+function existeMail(){
+    document.getElementById('noodle').className='folderDrop'
+    document.getElementById('noodle').style.zIndex=priority;
+    priority ++;
+    document.getElementById('noodle').style.display='flex';
+    console.log('yes')
+}
 
 function grandDoc(){
     let taille1= document.getElementById('petitDocument')

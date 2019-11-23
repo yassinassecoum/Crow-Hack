@@ -1,0 +1,132 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#allmight{
+    width: 600px;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+}
+
+/* ---------------------------- zone pour voir les fonctions de base de la boite mail -------------------------------- */
+#zoneDeboite{
+    width: 150px;
+    color: whitesmoke;
+    background-color: black;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+
+}
+.test{
+    padding-top: 0;
+    padding-inline-start : 0px;
+}
+#zoneDeboite p{
+    font-size: 7pt;
+    margin-bottom: 10px;
+}
+#zoneDeboite ul{
+    padding: 0;
+}
+#zoneDeboite ul li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+#zoneDeboite button{
+    background-color: black;
+    font-family: sans-serif;
+    font-size: 11pt;
+    font-weight: bold;
+    color:whitesmoke;
+    border: none;
+}
+#zoneDeboite button:hover{
+    border: 2px solid rgba(255, 235, 205, 0.300);
+    border-radius: 4px;
+    text-decoration: underline;
+}
+
+/* -------------------  zone pour voir la liste de mail ------------------- */
+#zoneDeliste{
+    display: none;
+    width: 150px;
+    overflow-y: scroll;
+    scrollbar-color: rgb(97, 17, 17) rgb(87, 6, 6);
+    scrollbar-width: bold;
+}
+#zoneDeliste::-webkit-scrollbar {
+    width: 7px;
+  }
+#zoneDeliste::-webkit-scrollbar-track {
+    background-color: rgba(163, 92, 92, 0.9);
+    box-shadow: inset 0 0 5px rgb(116, 114, 114); 
+    border-radius: 10px;
+  }
+#zoneDeliste::-webkit-scrollbar-thumb {
+	background:rgb(138, 13, 13); 
+	border-radius: 10px;
+    }
+    
+#zoneDeliste ul li {
+    list-style: none;
+}
+#zoneDeliste button {
+    background-color: rgb(24, 24, 27);
+    color: whitesmoke;
+    font-family: sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    border: 1px black solid;
+}
+#zoneDeliste button:hover{
+    border: 2px black solid;
+    background-color: rgba(15, 15, 17, 0.7);
+}
+
+/* ------------------- zone qui affichera les mails pour les lire ou ecrire le mail -------------------- */
+#zoneQuichange{
+    display: none;
+    width: 300px;
+    background-color: whitesmoke;
+    color: black;
+    font-family: sans-serif;
+}
+
+/* ------------------ CSS de l'ecriture du mail --------------------------------- */
+#pourEcrire{
+    display: none;
+    margin: 5px;
+}
+#toDestinataire{
+    padding: 5px;
+    font-weight: 620;
+    font-size: 14pt;
+    font-family: sans-serif;
+}
+#mailEcrit1{
+    width: 290px;
+    height: 300px;
+    padding: 5px;
+    font-size: 12pt;
+    font-weight: 520;
+    font-family: sans-serif;
+}
+/* ------------------- CSS de lecture du mail ------------------------------------------- */
+#pourLire{
+    display: none;
+    margin: 5px;
+}
+#envoyeur{
+    border: black 0.5px solid ;
+    padding: 4px;
+    font-family: sans-serif;
+    font-weight: 625;
+    text-decoration: underline;
+    background-color: rgb(252, 252, 252);
+}
+#lemail{
+    padding: 5px;
+    text-align: justify;
+}
