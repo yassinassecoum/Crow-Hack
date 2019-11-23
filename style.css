@@ -272,14 +272,13 @@ div>.droite{
   width: 100%;
   height: 270px;
   margin-top: 30px;
-  background-color: rgb(37, 37, 37);
+  background-color: white;
 }
 
 .grandMillieu{
   width: 100%;
   height:496px;
-  background-color: rgb(37, 37, 37);
-
+  background-color: white;
 }
 
 
@@ -421,4 +420,61 @@ position: relative;
 
 p {
   min-height: 1px;
+}
+
+.bas div {
+  display: flex;
+  justify-content: center;
+}
+
+.bas div p{
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.bas div #one {
+  color: rgb(59, 59, 255);
+}
+
+.bas div #two {
+  color: rgb(255, 40, 40);
+}
+
+.bas div #three {
+  color: rgb(255, 208, 0);
+}
+
+.bas div #four {
+  color: rgb(59, 59, 255);
+}
+
+.bas div #five {
+  color: rgb(20, 190, 20);
+}
+.bas div #six {
+  color: rgb(255, 40, 40);
+}
+
+.bas input{
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid rgb(44, 135, 255);
+  outline: none;
+  padding: 0 20px 0 20px;
+}
+
+.bas button{
+  margin-top: 20px;
+  display: block;
+  border: none;
+  padding: 5px 10px 5px 10px;
+  color: grey;
+  background-color: rgba(214, 214, 214, 0.795);
+  cursor: pointer;
+}
+
+.bas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
