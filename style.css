@@ -219,7 +219,22 @@ body{
   display: none;
 
 }
+#laptop{
+  position: absolute;
+  top: 530px;
+  left: 395px;
+  display: none
+}
+#exclam2{
+  position:absolute;
+  border:1px black;
+  top:311px;
+  left:404px;
+  font-size: 30px;
+  color: white;
+  display: none;
 
+}
 /*----------------------------------INTERFACE PC----------------------------------------*/
 
 
