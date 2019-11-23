@@ -79,8 +79,12 @@ window.onkeypress = function (e) {
                     moveLeft(canvasClient,contextClient,imageObjClient)
                     setTimeout(function(){
                         moveRight(canvas,context,imageObj)
+                        document.getElementById('exclam2').style.display = 'block'
+                        setTimeout(() => { document.getElementById('exclam2').style.display = '' }, 1500)
                         dialog(dialogue3)
+                        
                         document.getElementById('container-box').style.display = 'flex'
+                        
                         
                     },1150)
                     
@@ -93,8 +97,8 @@ window.onkeypress = function (e) {
                     moveLeft(canvasClient,contextClient,imageObjClient)
                     client.colone++;
                     test1()
-                    // console.log(document.getElementById("12").childNodes[8])
-                    // document.getElementById("12").childNodes[8].style.backgroundImage="url('img/tiles/bureau-milieu-avec-pc.png')"
+                    setTimeout(function(){document.getElementById('laptop').style.display = "flex"},100)
+                    
                     setTimeout(function() {
                         moveLr(canvasVictime, contextVictime, imageObjVictime, victime, {ligne: 13, colone:6})
                     },500)
@@ -107,7 +111,20 @@ window.onkeypress = function (e) {
 
                     },1500)
                 }
-                
+                if(step==4){
+                    console.log(victime)
+                    setTimeout(function(){
+                        moveLr(canvasVictime, contextVictime, imageObjVictime, victime, {ligne: 8, colone:6})
+                },100)
+                setTimeout(function(){moveRight(canvasVictime, contextVictime, imageObjVictime)
+                    victime.colone++;
+                    test1()
+                    setTimeout(function(){moveRight(canvasVictime, contextVictime, imageObjVictime)
+                        victime.colone++;
+                        test1()
+                    },800)
+                },800)
+                }
             }
         } else if (document.getElementById('ligne3').offsetWidth >= 620 && k === 3) {
             for (l = 1; l <= 3; l++) {
