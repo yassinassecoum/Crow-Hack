@@ -108,7 +108,7 @@ window.onkeypress = function (e) {
                         test1()
                         dialog(dialogue4)
                         document.getElementById('container-box').style.display = 'flex'
-
+                        
                     },1500)
                 }
                 if(step==4){
@@ -122,6 +122,8 @@ window.onkeypress = function (e) {
                     setTimeout(function(){moveRight(canvasVictime, contextVictime, imageObjVictime)
                         victime.colone++;
                         test1()
+                        moveUp(canvas,context,imageObj)
+                        blocage=false;
                     },800)
                 },800)
                 }
@@ -357,6 +359,12 @@ var reception = {
     colone: 5,
     use: "reception"
 }
+var ordi = {
+    prenom: "ordi",
+    ligne: 12,
+    colone: 9,
+    use: "ordi"
+}
 var client = {
     prenom: "Laurent",
     ligne: 13,
@@ -405,7 +413,7 @@ const tiles = [[{ img: "url('img/tiles/coin.png')", free: false }, { img: "url('
 [{ img: "url('img/tiles/bordure_left.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/Cloison_millieu1.png')", free: false }, { img: "url('img/tiles/toit-serveur.png')", free: false }, { img: "url('img/tiles/sol.png')", free: false }, { img: "url('img/tiles/sol.png')", free: false }, { img: "url('img/tiles/sol.png')", free: false }, { img: "url('img/tiles/sol.png')", free: false }, { img: "url('img/tiles/sol.png')", free: false }, { img: "url('img/tiles/sol.png')", free: false }, { img: "url('img/tiles/sol.png')", free: false }, { img: "url('img/tiles/toit-serveur-mirror.png')", free: false }, { img: "url('img/tiles/bordure_right.png')", free: false }],//fin ligne8
 [{ img: "url('img/tiles/bordure_left.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/cloisonT.png')", free: false }, { img: "url('img/tiles/Cloison-Milieu.png')", free: false }, { img: "url('img/tiles/Cloison-Milieu.png')", free: false }, { img: "url('img/tiles/Cloison-Milieu.png')", free: false }, { img: "url('img/tiles/Cloison-fin1.png')", free: false }, { img: "url('img/tiles/dessus-porte.png')", free: false }, { img: "url('img/tiles/Cloison-fin.png')", free: false }, { img: "url('img/tiles/Cloison-Milieu.png')", free: false }, { img: "url('img/tiles/Cloison-Milieu.png')", free: false }, { img: "url('img/tiles/Cloison-Milieu.png')", free: false }, { img: "url('img/tiles/cloison-gap.png')", free: false }],//fin ligne9
 [{ img: "url('img/tiles/bordure_left.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/chaise-face.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/chaise-face.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/chaise-face.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/Cloison_millieu1.png')", free: false }, { img: "url('img/tiles/Mur_Haut.png')", free: false }, { img: "url('img/tiles/Mur_Haut.png')", free: false }, { img: "url('img/tiles/Mur_Haut.png')", free: false }, { img: "url('img/tiles/Mur_Haut.png')", free: false }, { img: "url('img/tiles/porte-haut.png')", free: false }, { img: "url('img/tiles/Mur_Haut.png')", free: false }, { img: "url('img/tiles/Mur_Haut.png')", free: false }, { img: "url('img/tiles/Mur_Haut.png')", free: false }, { img: "url('img/tiles/Mur_Haut.png')", free: false }, { img: "url('img/tiles/bordure_right.png')", free: false }],//fin ligne10
-[{ img: "url('img/tiles/bordure_left.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/bureau-arriere-coingauche.png')", free: false }, { img: "url('img/tiles/bureau-arriere-milieu.png')", free: false }, { img: "url('img/tiles/bureau-arriere-coindroit.png')", free: false }, { img: "url('img/tiles/bureau-arriere-coingauche.png')", free: false }, { img: "url('img/tiles/bureau-arriere-milieu.png')", free: false }, { img: "url('img/tiles/bureau-arriere-coindroit.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/bureau-arriere-coingauche.png')", free: false }, { img: "url('img/tiles/bureau-arriere-milieu.png')", free: false }, { img: "url('img/tiles/bureau-arriere-coindroit-tablette.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/Cloison_millieu1.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/porte-bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/bordure_right.png')", free: false }],//fin ligne11
+[{ img: "url('img/tiles/bordure_left.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/bureau-arriere-coingauche.png')", free: false }, { img: "url('img/tiles/bureau-arriere-milieu.png')", free: false ,use:true}, { img: "url('img/tiles/bureau-arriere-coindroit.png')", free: false }, { img: "url('img/tiles/bureau-arriere-coingauche.png')", free: false }, { img: "url('img/tiles/bureau-arriere-milieu.png')", free: false }, { img: "url('img/tiles/bureau-arriere-coindroit.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/bureau-arriere-coingauche.png')", free: false }, { img: "url('img/tiles/bureau-arriere-milieu.png')", free: false }, { img: "url('img/tiles/bureau-arriere-coindroit-tablette.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/Cloison_millieu1.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/porte-bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/bordure_right.png')", free: false }],//fin ligne11
 [{ img: "url('img/tiles/bordure_left.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/bureau-cote-gauche.png')", free: false }, { img: "url('img/tiles/bureau-milieu.png')", free: false }, { img: "url('img/tiles/bureau-cote-droit.png')", free: false }, { img: "url('img/tiles/bureau-cote-gauche.png')", free: false }, { img: "url('img/tiles/bureau-milieu-avec-pc.png')", free: false }, { img: "url('img/tiles/bureau-cote-droit.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/bureau-cote-gauche.png')", free: false }, { img: "url('img/tiles/bureau-milieu-avec-pcecran.png')", free: false }, { img: "url('img/tiles/bureau-avec-tourpc.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/cloi.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/chaise-side1.png')", free: false }, { img: "url('img/tiles/bureau-side-haut-ordi.png')", free: false }, { img: "url('img/tiles/bordure_right.png')", free: false }],//fin ligne12
 [{ img: "url('img/tiles/bordure_left.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/Mur_Haut.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/bureau-side-bas-feuille.png')", free: false }, { img: "url('img/tiles/bordure_right.png')", free: false }],//fin ligne13
 [{ img: "url('img/tiles/bordure_left.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/Mur_Bas.png')", free: false }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol.png')", free: true }, { img: "url('img/tiles/sol-et-plante.png')", free: false }, { img: "url('img/tiles/bordure_right.png')", free: false }],//fin ligne14
@@ -490,7 +498,7 @@ window.onkeydown = function (e) {
         switch (e.key) {
             case "ArrowUp":
                 console.log(mainCharacter.ligne)
-                if ((tiles[mainCharacter.ligne - 2][mainCharacter.colone - 1].free) && (reception.ligne != mainCharacter.ligne - 1 || reception.colone != mainCharacter.colone)) {
+                if ((tiles[mainCharacter.ligne - 2][mainCharacter.colone - 1].free) && (ordi.ligne != mainCharacter.ligne - 1 || ordi.colone != mainCharacter.colone)) {
                     if (allow) {
                         allow = false;
                         mainCharacter.ligne--;
@@ -502,8 +510,8 @@ window.onkeydown = function (e) {
                     context.clearRect(0, 0, canvas.width, canvas.height);
                     context.drawImage(imageObj, 48, 144, 48, 48, 0, 0, 48, 48);
                 }
-                if (tiles[mainCharacter.ligne - 2][mainCharacter.colone - 1].use || (reception.ligne == mainCharacter.ligne - 1 && reception.colone == mainCharacter.colone)) {
-                    useObject = ((reception.ligne == mainCharacter.ligne - 1 && reception.colone == mainCharacter.colone) ? reception.use : tiles[mainCharacter.ligne - 2][mainCharacter.colone - 1].use);
+                if (tiles[mainCharacter.ligne - 2][mainCharacter.colone - 1].use || (ordi.ligne == mainCharacter.ligne - 1 && ordi.colone == mainCharacter.colone)) {
+                    useObject = ((ordi.ligne == mainCharacter.ligne - 1 && ordi.colone == mainCharacter.colone) ? ordi.use : tiles[mainCharacter.ligne - 2][mainCharacter.colone - 1].use);
                     document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
                     setTimeout(function () {
                         document.getElementById("msg").innerHTML = "";
@@ -513,7 +521,7 @@ window.onkeydown = function (e) {
                 }
                 break;
             case "ArrowDown":
-                if (tiles[mainCharacter.ligne][mainCharacter.colone - 1].free && (reception.ligne != mainCharacter.ligne + 1 || reception.colone != mainCharacter.colone)) {
+                if (tiles[mainCharacter.ligne][mainCharacter.colone - 1].free && (ordi.ligne != mainCharacter.ligne + 1 || ordi.colone != mainCharacter.colone)) {
                     if (allow) {
                         allow = false;
                         mainCharacter.ligne++;
@@ -525,8 +533,8 @@ window.onkeydown = function (e) {
                     context.clearRect(0, 0, canvas.width, canvas.height);
                     context.drawImage(imageObj, 48, 0, 48, 48, 0, 0, 48, 48);
                 }
-                if (tiles[mainCharacter.ligne][mainCharacter.colone - 1].use || (reception.ligne == mainCharacter.ligne + 1 && reception.colone == mainCharacter.colone)) {
-                    useObject = ((reception.ligne == mainCharacter.ligne + 1 && reception.colone == mainCharacter.colone) ? reception.use : tiles[mainCharacter.ligne][mainCharacter.colone - 1].use);
+                if (tiles[mainCharacter.ligne][mainCharacter.colone - 1].use || (ordi.ligne == mainCharacter.ligne + 1 && ordi.colone == mainCharacter.colone)) {
+                    useObject = ((ordi.ligne == mainCharacter.ligne + 1 && ordi.colone == mainCharacter.colone) ? ordi.use : tiles[mainCharacter.ligne][mainCharacter.colone - 1].use);
                     document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
                     setTimeout(function () {
                         document.getElementById("msg").innerHTML = "";
@@ -536,7 +544,7 @@ window.onkeydown = function (e) {
                 }
                 break;
             case "ArrowLeft":
-                if (tiles[mainCharacter.ligne - 1][mainCharacter.colone - 2].free && (reception.ligne != mainCharacter.ligne || reception.colone != mainCharacter.colone - 1)) {
+                if (tiles[mainCharacter.ligne - 1][mainCharacter.colone - 2].free && (ordi.ligne != mainCharacter.ligne || ordi.colone != mainCharacter.colone - 1)) {
                     if (allow) {
                         allow = false;
                         mainCharacter.colone--;
@@ -548,8 +556,8 @@ window.onkeydown = function (e) {
                     context.clearRect(0, 0, canvas.width, canvas.height);
                     context.drawImage(imageObj, 48, 48, 48, 48, 0, 0, 48, 48);
                 }
-                if (tiles[mainCharacter.ligne - 1][mainCharacter.colone - 2].use || (reception.ligne == mainCharacter.ligne && reception.colone == mainCharacter.colone - 1)) {
-                    useObject = ((reception.ligne == mainCharacter.ligne && reception.colone == mainCharacter.colone - 1) ? reception.use : tiles[mainCharacter.ligne - 1][mainCharacter.colone - 2].use);
+                if (tiles[mainCharacter.ligne - 1][mainCharacter.colone - 2].use || (ordi.ligne == mainCharacter.ligne && ordi.colone == mainCharacter.colone - 1)) {
+                    useObject = ((ordi.ligne == mainCharacter.ligne && ordi.colone == mainCharacter.colone - 1) ? ordi.use : tiles[mainCharacter.ligne - 1][mainCharacter.colone - 2].use);
                     document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
                     setTimeout(function () {
                         document.getElementById("msg").innerHTML = "";
@@ -559,7 +567,7 @@ window.onkeydown = function (e) {
                 }
                 break;
             case "ArrowRight":
-                if (tiles[mainCharacter.ligne - 1][mainCharacter.colone].free && (reception.ligne != mainCharacter.ligne || reception.colone != mainCharacter.colone + 1)) {
+                if (tiles[mainCharacter.ligne - 1][mainCharacter.colone].free && (ordi.ligne != mainCharacter.ligne || ordi.colone != mainCharacter.colone + 1)) {
                     if (allow) {
                         allow = false;
                         mainCharacter.colone++;
@@ -570,8 +578,8 @@ window.onkeydown = function (e) {
                     context.clearRect(0, 0, canvas.width, canvas.height);
                     context.drawImage(imageObj, 48, 96, 48, 48, 0, 0, 48, 48);
                 }
-                if (tiles[mainCharacter.ligne - 1][mainCharacter.colone].use || (reception.ligne == mainCharacter.ligne && reception.colone == mainCharacter.colone + 1)) {
-                    useObject = ((reception.ligne == mainCharacter.ligne && reception.colone == mainCharacter.colone + 1) ? reception.use : tiles[mainCharacter.ligne - 1][mainCharacter.colone].use);
+                if (tiles[mainCharacter.ligne - 1][mainCharacter.colone].use || (ordi.ligne == mainCharacter.ligne && ordi.colone == mainCharacter.colone + 1)) {
+                    useObject = ((ordi.ligne == mainCharacter.ligne && ordi.colone == mainCharacter.colone + 1) ? ordi.use : tiles[mainCharacter.ligne - 1][mainCharacter.colone].use);
                     document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
                     setTimeout(function () {
                         document.getElementById("msg").innerHTML = "";
@@ -583,7 +591,12 @@ window.onkeydown = function (e) {
             case "f":
                 if (useObject) {
                     switch (useObject) {
-                        case "ordinateur":
+                        case "ordi":
+                            var cent=document.getElementsByClassName("center")
+                            console.log(cent);
+                            cent[0].style.zIndex="49";
+                            var task=document.getElementsByClassName("taskbar")
+                            task[0].style.zIndex="49";
                             break;
                         case "reception":
                             if (step == 0) {

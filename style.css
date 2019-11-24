@@ -247,7 +247,7 @@ body{
   overflow: hidden;
   background-color: #00476B;
   position: relative;
-  z-index: -55555555555555555555555;
+  z-index: -1;
 
 }
 
