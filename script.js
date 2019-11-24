@@ -36,8 +36,50 @@ const dialogue3 = [{ nom: 'tt', dialogue: 'comment allez vous', image: 'img/avat
             },miliSecond)
             
         }
-       
-       
+       // function recherche key loger
+        /*function search() {
+            let val = document.getElementById('recherche').value;
+            if (val == "key loger") {
+                document.getElementById('message').innerHTML= 'Soufiane Bravo';
+                document.getElementById('message').style.color ='whitesmoke';
+            } else {
+                document.getElementById('recherche').value = "";
+                document.getElementById('message').innerHTML= 'Bouuh';
+                document.getElementById('message').style.color ='whitesmoke';
+            }
+        } //end
+        */
+
+        //function ransonware
+       /* let log1 = 'phishing'
+        let log2 = 'ransonware'
+        let i = 0
+
+
+        function create(log) {
+            document.querySelector('#log1').style.display = 'none' // cacher les logiciel lors du téléchargement
+            document.querySelector('#log2').style.display = 'none' // "" ""
+            document.getElementById('image').innerHTML = log + ' en cours de création'
+            let Interval = setInterval(function () {
+                i++
+                document.getElementById('perCent').innerHTML = i + ' %';
+                document.querySelector('.progress').style.width = i +
+                    'px'; // progression barre de chargement avec les %
+                if (i == 100) {
+                    i = 0
+                    clearInterval(Interval)
+                }
+            }, 100)
+
+            setTimeout(function () {
+                document.getElementById('fini').innerHTML += log + ' '
+                document.getElementById('image').innerHTML = ''
+                document.getElementById('perCent').innerHTML = '100%'
+            }, 10000)
+        }*/
+        //end
+        
+
         
         window.onkeypress=function(e){
             if(e.key.toLowerCase() =="w"){
@@ -545,6 +587,9 @@ function existePhoto(){
 
 
 }
+function existeDowload() { //pour fenêtre generateur
+    document.querySelector('.window-doss3').style.display = 'block';
+}
 
 function existeNoodle(){
     document.getElementById('noodle').className='folderDrop'
@@ -569,7 +614,7 @@ function grandDoc(){
         taille4.className = 'grandPetiteDroite'
         document.getElementById('trash').style.display ='none';
         document.getElementById('tof').style.display ='none';
-        document.getElementById('projo').style.display ='none';
+        document.getElementById('ransonware').style.display ='none';
         document.getElementById('button').style.display ='none';
         
     }else {
@@ -579,7 +624,7 @@ function grandDoc(){
         taille4.className = 'petiteDroite'
         document.getElementById('trash').style.display ='block';
         document.getElementById('tof').style.display ='block';
-        document.getElementById('projo').style.display ='block';
+        document.getElementById('ransonware').style.display ='block';
         document.getElementById('button').style.display ='block';
     }
 
@@ -589,7 +634,7 @@ function closeDoc(){
     document.getElementById('petitDocument').style.display='none'
     document.getElementById('trash').style.display ='block';
     document.getElementById('tof').style.display ='block';
-    document.getElementById('projo').style.display ='block';
+    document.getElementById('ransonware').style.display ='block';
     document.getElementById('button').style.display ='block';
 }
 
@@ -608,7 +653,7 @@ function grandPhoto(){
         taille4.className = 'grandPetiteDroite'
         document.getElementById('trash').style.display ='none';
         document.getElementById('tof').style.display ='none';
-        document.getElementById('projo').style.display ='none';
+        document.getElementById('ransonware').style.display ='none';
         document.getElementById('button').style.display ='none';
     
     
@@ -619,7 +664,7 @@ function grandPhoto(){
         taille4.className = 'petiteDroite'
         document.getElementById('trash').style.display ='block';
         document.getElementById('tof').style.display ='block';
-        document.getElementById('projo').style.display ='block';
+        document.getElementById('ransonware').style.display ='block';
         document.getElementById('button').style.display ='block';
     }
 
@@ -629,7 +674,7 @@ function closePhoto(){
     document.getElementById('petitPhoto').style.display='none'
     document.getElementById('trash').style.display ='block';
     document.getElementById('tof').style.display ='block';
-    document.getElementById('projo').style.display ='block';
+    document.getElementById('ransonware').style.display ='block';
     document.getElementById('button').style.display ='block';
 
 }
@@ -644,7 +689,7 @@ function grandInternet() {
         taille2.className = 'grandMillieu'
         document.getElementById('trash').style.display ='none';
         document.getElementById('tof').style.display ='none';
-        document.getElementById('projo').style.display ='none';
+        document.getElementById('ransonware').style.display ='none';
         document.getElementById('button').style.display ='none';
     
     
@@ -653,7 +698,7 @@ function grandInternet() {
         taille2.className = 'millieu'
         document.getElementById('trash').style.display ='block';
         document.getElementById('tof').style.display ='block';
-        document.getElementById('projo').style.display ='block';
+        document.getElementById('ransonware').style.display ='block';
         document.getElementById('button').style.display ='block';
     }
 
@@ -663,7 +708,30 @@ function closeInternet(){
     document.getElementById('noodle').style.display='none'
     document.getElementById('trash').style.display ='block';
     document.getElementById('tof').style.display ='block';
-    document.getElementById('projo').style.display ='block';
+    document.getElementById('ransonware').style.display ='block';
     document.getElementById('button').style.display ='block';
 
+}
+
+//ransoware
+let log1 = 'phishing'
+let log2 = 'ransonware'
+let c = 0
+
+function create (log) {
+    document.getElementById('image').innerHTML = log + 'creation en cours';
+    let Interval = setInterval(function () {
+        c++
+        document.getElementById('perCent').innerHTML = c + ' %';
+        document.querySelector('.progress').style.width = c + 'px'; // progression barre de chargement avec les %
+        if (c == 100) {
+            c = 0
+            clearInterval(Interval)
+        }
+    }, 100)
+    setTimeout(function () {
+        document.getElementById('fini').innerHTML += log;
+        document.getElementById('image').innerHTML = ''
+        document.getElementById('perCent').innerHTML = ''
+    }, 10000)
 }

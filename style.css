@@ -17,7 +17,7 @@ body{
     display: flex;
     flex-direction: row;
     width: 80%;
-    height: auto
+    height: auto 
   }
   .left{
     border: 1px solid red;
@@ -155,13 +155,61 @@ body{
   align-items: center;
 }
 
-.doss1,.doss2, .doss3{
+.doss1,.doss2 {
   background-image: url('http://icons.iconarchive.com/icons/mahm0udwally/all-flat/256/Folder-icon.png');
   background-repeat: no-repeat;
   background-size: 82px;
 
 }
 
+.doss3{
+  background-image: url('/img/generator.png');
+  background-repeat: no-repeat;
+  background-size: 82px;
+}
+.window-doss3 {
+  margin: auto;
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  display: none;
+}
+.generateur {
+  position: absolute;
+}
+.left-doss3{
+  position: absolute;
+  
+}
+.middle-doss3 {
+  position: absolute;
+} 
+.right-doss3 {
+  position: absolute;
+}
+.hani {
+  display: flex;
+  margin: auto;
+  width: 100px;
+}
+
+.progress {
+  background-color: green;
+  margin: 0;
+  height: 20px;
+  width: 0px;
+  display: none;
+  justify-content: left;
+
+}
+
+#log1 {
+  font-size: 30px;
+}
+
+#log2 {
+  font-size: 30px;
+}
 
 
 .doss4{
@@ -184,8 +232,27 @@ div.doss1 > p{
 
 
 /***fenetre*/
+/*Ransonware
 
 
+.progress {
+  background-color: green;
+  margin: 0;
+  height: 20px;
+  width: 0px;
+  display: flex;
+  justify-content: left;
+
+}
+
+#log1 {
+  font-size: 30px;
+}
+
+#log2 {
+  font-size: 30px;
+}
+Fin Ransonware*/
 
 div>.gauche{
   color:rgba(250, 250, 250, 0.8);
