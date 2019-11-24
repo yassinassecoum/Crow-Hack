@@ -2,17 +2,19 @@ const dialogue1 = [{ nom: 'Rachel', dialogue: 'Bonjour, Puis-je vous aider?', im
 { nom: 'Rachel', dialogue: "Ah, vous pouvez rentrer, David vous attends." , image: 'img/avatars/receptionniste/content.png' }, { nom: 'Crow', dialogue: "Merci, bonne journée!", image: 'img/avatars/crow/content.png' }, { nom: 'Rachel', dialogue: "Merci, à vous aussi... hihi.", image: 'img/avatars/receptionniste/content.png' }];
 
 
-const dialogue2 = [{ nom: 'David', dialogue: "Bonjour, Crow c'est bien ça?  ", image: 'img/avatars/crow/content.png' }, { nom: 'Crow', dialogue: "Oui c'est bien moi, de qui dois-je m'occuper?", image: 'img/avatars/client/content.png' },
+const dialogue2 = [{ nom: 'David', dialogue: "Bonjour, Crow c'est bien ça?  ", image: 'img/avatars/client/content.png' }, { nom: 'Crow', dialogue: "Oui c'est bien moi, de qui dois-je m'occuper?", image: 'img/avatars/crow/content.png' },
 { nom: 'David', dialogue: "Je vais vous montrer, suivez moi..", image: 'img/avatars/client/content.png' }]
 
-const dialogue3 = [{ nom: 'David', dialogue: 'Ta cible arrive.', image: 'img/avatars/crow/content.png' }, { nom: 'Crow', dialogue: "...Quoi?", image: 'img/avatars/crow/content.png' }]
-const dialogue4 = [{nom:'Yassion', dialogue: "Salut je suis Yassion! C'est toi le nouveau stagiaire? Crow c'est ça ? Enchanté!", image:'img/avatars/cible/content.png'},{nom:'Crow', dialogue: "...Enchanté Yassion.", image:'img/avatars/cible/content.png'} ]
+const dialogue3 = [{ nom: 'David', dialogue: 'Ta cible arrive.', image: 'img/avatars/client/content.png' }, { nom: 'Crow', dialogue: "...Quoi?", image: 'img/avatars/crow/content.png' }]
+const dialogue4 = [{nom:'Yassion', dialogue: "Salut je suis Yassion! C'est toi le nouveau stagiaire? Crow c'est ça ? Enchanté!", image:'img/avatars/cible/content.png'},{nom:'Crow', dialogue: "...Enchanté Yassion.", image:'img/avatars/crow/content.png'} ]
 
-const dialogue5 = [{nom: 'Crow', dialogue: "Bon par quoi je commence maintenant?", image:"img/avatars/crow/content.png"}]
+const dialogue5 = [{nom: 'Crow', dialogue: "Bon, il faut que je commence par utiliser mon générateur", image:"img/avatars/crow/content.png"}]
 
 const dialogue6 = [{nom: 'Crow', dialogue: "je n'ai rien à faire là dedans.", image:"img/avatars/crow/content.png"}]
 const dialogue7 = [{nom: 'Crow', dialogue: "Ah mes vieilles photos de vacances... Mais je dois pas oublier mon objectifs ?!", image:"img/avatars/crow/content.png"}]
-const dialogue8 = [{nom: 'Crow', dialogue: "Je pourrais déja générer un hack, lequel serait le mieux?", image:"img/avatars/crow/content.png"}]
+const dialogue8 = [{nom: 'Crow', dialogue: "Qu'est ce qui serait le mieux adaptés? ", image:"img/avatars/crow/content.png"}]
+const dialogue9 = [{nom: 'Crow', dialogue: "Maintenant qu'il est crée je n'ai plus qu'a l'envoyer.", image:"img/avatars/crow/content.png"}]
+const dialogue10 = [{nom: 'Crow', dialogue: "Parfait. Plus qu'à attendre...", image:"img/avatars/crow/content.png"}]
 
 let ligne
 let indexDialog = 0
@@ -198,7 +200,7 @@ imageObj.onload = function () {
     var destY = canvas.height / 2 - destHeight / 2;
     context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
 };
-imageObj.src = 'img/tiles/hero.png';
+imageObj.src = 'img/avatars/crow/body.png';
 
 //canvas Client
 
@@ -521,7 +523,7 @@ window.onkeydown = function (e) {
                 }
                 if (tiles[mainCharacter.ligne - 2][mainCharacter.colone - 1].use || (ordi.ligne == mainCharacter.ligne - 1 && ordi.colone == mainCharacter.colone)) {
                     useObject = ((ordi.ligne == mainCharacter.ligne - 1 && ordi.colone == mainCharacter.colone) ? ordi.use : tiles[mainCharacter.ligne - 2][mainCharacter.colone - 1].use);
-                    document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
+                    document.getElementById("msg").innerHTML = "";
                     setTimeout(function () {
                         document.getElementById("msg").innerHTML = "";
                     }, 2000);
@@ -544,7 +546,7 @@ window.onkeydown = function (e) {
                 }
                 if (tiles[mainCharacter.ligne][mainCharacter.colone - 1].use || (ordi.ligne == mainCharacter.ligne + 1 && ordi.colone == mainCharacter.colone)) {
                     useObject = ((ordi.ligne == mainCharacter.ligne + 1 && ordi.colone == mainCharacter.colone) ? ordi.use : tiles[mainCharacter.ligne][mainCharacter.colone - 1].use);
-                    document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
+                    document.getElementById("msg").innerHTML = "";
                     setTimeout(function () {
                         document.getElementById("msg").innerHTML = "";
                     }, 2000);
@@ -567,7 +569,7 @@ window.onkeydown = function (e) {
                 }
                 if (tiles[mainCharacter.ligne - 1][mainCharacter.colone - 2].use || (ordi.ligne == mainCharacter.ligne && ordi.colone == mainCharacter.colone - 1)) {
                     useObject = ((ordi.ligne == mainCharacter.ligne && ordi.colone == mainCharacter.colone - 1) ? ordi.use : tiles[mainCharacter.ligne - 1][mainCharacter.colone - 2].use);
-                    document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
+                    document.getElementById("msg").innerHTML = "";
                     setTimeout(function () {
                         document.getElementById("msg").innerHTML = "";
                     }, 2000);
@@ -589,7 +591,7 @@ window.onkeydown = function (e) {
                 }
                 if (tiles[mainCharacter.ligne - 1][mainCharacter.colone].use || (ordi.ligne == mainCharacter.ligne && ordi.colone == mainCharacter.colone + 1)) {
                     useObject = ((ordi.ligne == mainCharacter.ligne && ordi.colone == mainCharacter.colone + 1) ? ordi.use : tiles[mainCharacter.ligne - 1][mainCharacter.colone].use);
-                    document.getElementById("msg").innerHTML = "Appuie sur F pour intéragir !";
+                    document.getElementById("msg").innerHTML = "";
                     setTimeout(function () {
                         document.getElementById("msg").innerHTML = "";
                     }, 2000);
@@ -604,8 +606,10 @@ window.onkeydown = function (e) {
                             var cent=document.getElementsByClassName("center")
                             console.log(cent);
                             cent[0].style.zIndex="49";
+                            cent[0].style.display="block"
                             var task=document.getElementsByClassName("taskbar")
                             task[0].style.zIndex="49";
+                            task[0].style.display="block"
                             dialog(dialogue5)
                             break;
                         case "reception":
@@ -1032,3 +1036,124 @@ function closeInternet(){
     document.getElementById('button').style.display ='block';
 
 }
+
+function gen(){
+    dialog(dialogue8)
+    console.log("ok")
+    var gen = document.getElementById("gene");
+    gen.style.display="flex"
+    var divFish=document.getElementById('divFish');
+    var divRan=document.getElementById('divRan')
+    var contentGen=document.getElementById("contentGen")
+    divFish.onclick=function(){
+        console.log("fish")
+        contentGen.innerHTML="<b>Phishing</b> <br>"
+        contentGen.innerHTML+="Description :<br> mail frauduleux permettant de récupérer des information sensible directement de la cible en se faisant passé pour un organisme connu de la cible<br><br>"
+        contentGen.innerHTML+="<button onclick=but('phishing') id='genBut'>Generer le logiciel</button>"
+        contentGen.innerHTML+="<div id='perCent'></div>"
+        contentGen.innerHTML+="<div id='loading'></div>"
+        var loading=document.getElementById('loading')
+    }
+    divRan.onclick=function(){
+        contentGen.innerHTML="<b>Ransomware</b> <br>"
+        contentGen.innerHTML+="Description :<br>logiciel cryptant les données de l'ordinateur de la cible et lui demandant de payer une ranson afin de libérer ses données. se débloque avec une clef d'acces<br><br>"
+        contentGen.innerHTML+="<button onclick=but('ransom') id='genBut'>Generer le logiciel</button>"
+        contentGen.innerHTML+="<div id='perCent'></div>"
+        contentGen.innerHTML+="<div id='loading'></div>"
+        var loading=document.getElementById('loading')
+    }
+}
+
+ let w = 20
+function but(log){
+       let Interval = setInterval(function(){
+            w++
+        loading.style.width="calc("+w+" * 3px)";
+        document.getElementById('perCent').innerHTML = w + ' %'
+        if(w == 100){
+            w=0
+            clearInterval(Interval)
+        }
+        },100)
+        
+        setTimeout(function(){
+            dialog(dialogue9)
+            if(log=="phishing"){
+                var icoP=document.getElementById('phish');
+                icoP.style.display="block"
+            }
+            else if(log=="ransom"){
+                var icoR=document.getElementById('rans');
+                icoR.style.display="block"
+            }
+            document.getElementById('perCent').innerHTML =''
+        },8000)
+        
+    }
+    
+document.getElementById("exitGen").onclick= function(){
+    var gen = document.getElementById("gene");
+    gen.style.display="none"
+}
+function getMail(){
+    var mail=document.getElementById("mailbox")
+    mail.style.display="flex"
+}
+function exitMail(){
+    var exit=document.getElementById("mailbox")
+    exit.style.display="none"
+}
+function showMail(){
+    document.getElementById("boxMail").style.display="initial"
+    document.getElementById("sendMail").style.display="none"
+}
+function newMail(){
+    document.getElementById("sendMail").style.display="flex"
+    document.getElementById("boxMail").style.display="none"
+    document.getElementById('desti').innerHTML="";
+    document.getElementById('desti').style.color="black"
+    var destinataire="Yassion@evilcorp.com"
+    var mailObj="Très urgent !! (La réception)"
+    var r=0;
+    function letByLet(){
+        
+        setTimeout(()=>{
+            document.getElementById('desti').innerHTML+=destinataire[r];
+            r++;
+            if(r<destinataire.length)letByLet();
+            else{
+                r=0;
+                document.getElementById('mailObj').style.color="black"
+                document.getElementById('mailObj').innerHTML=""
+                letByLet1();
+            }
+        },100)
+    }
+    letByLet();
+
+function letByLet1(){
+        
+    setTimeout(()=>{
+        document.getElementById('mailObj').innerHTML+=mailObj[r];
+        r++;
+        if(r<mailObj.length)letByLet1();
+    },100)
+}
+}
+function openFile(){
+    document.getElementById("parcourir").style.display="none"
+    document.getElementById("textarea").innerHTML="1 document joint";
+
+}
+function joindre(){
+    document.getElementById("parcourir").style.display="initial"
+}
+function sendMail(){
+    document.getElementById("mailbox").style.display="none"
+    dialog(dialogue10)
+}
+// window.onkeypress = (function keyPressing(e){
+//     if(e.key==="Escape")
+//     var pcInt=document.getElementsByClassName('center')
+//     pcInt[0].style.display="none";
+// })

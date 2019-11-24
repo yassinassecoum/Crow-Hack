@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,81 +10,98 @@
 
     <title>Map</title>
 </head>
+
 <body>
-    
+
     <div class="container">
-    <div id="map">
-        <canvas id="myCanvasPng" width="48" height="48"></canvas>
-        <canvas id="canvasClient" width="48" height="48"></canvas>
-        <canvas id="canvasVictime" width="48" height="48"></canvas>
-        <canvas id="canvasHugues" width="48" height="48"></canvas>
-        <canvas id="canvasLaura" width="48" height="48"></canvas>
-        <canvas id="canvasMarcus" width="48" height="48"></canvas>
-        
-    </div>
-    <div id="calc">
+        <div id="map">
+            <canvas id="myCanvasPng" width="48" height="48"></canvas>
+            <canvas id="canvasClient" width="48" height="48"></canvas>
+            <canvas id="canvasVictime" width="48" height="48"></canvas>
+            <canvas id="canvasHugues" width="48" height="48"></canvas>
+            <canvas id="canvasLaura" width="48" height="48"></canvas>
+            <canvas id="canvasMarcus" width="48" height="48"></canvas>
+
+        </div>
+        <div id="calc">
             <div id="exclam">!</div>
             <div id="exclam2">!</div>
-            <img id="laptop"src="img/tiles/ordi.png" alt="">
-    <img id="chaisedos" src="img/tiles/chaise_dos.png">
-    <img id="chaisedos2" src="img/tiles/chaise_dos.png">
-    <img id="chaisedos3" src="img/tiles/chaise_dos.png">
-    <img id="chaisedos4" src="img/tiles/chaise_dos.png">
-    <img id="chaisedos5" src="img/tiles/chaise_dos.png">
-    <img id="chaisedos6" src="img/tiles/chaise_dos.png">
-    </div>
-    <canvas id="myCanvas" width="48" height="48"></canvas>
-    <section id="container-box">
-        <section id="box">
-    <p id="ligne1" style= "position: absolute;"></p>
-    <p id= "ligne2"style= "position: absolute; transform: translate(0,100%);"></p>
-    <p id="ligne3"style= "position: absolute;transform: translate(0,200%);"></p>
+            <img id="laptop" src="img/tiles/ordi.png" alt="">
+            <img id="chaisedos" src="img/tiles/chaise_dos.png">
+            <img id="chaisedos2" src="img/tiles/chaise_dos.png">
+            <img id="chaisedos3" src="img/tiles/chaise_dos.png">
+            <img id="chaisedos4" src="img/tiles/chaise_dos.png">
+            <img id="chaisedos5" src="img/tiles/chaise_dos.png">
+            <img id="chaisedos6" src="img/tiles/chaise_dos.png">
+        </div>
+        <canvas id="myCanvas" width="48" height="48"></canvas>
+        <section id="container-box">
+            <section id="box">
+                <p id="ligne1" style="position: absolute;"></p>
+                <p id="ligne2" style="position: absolute; transform: translate(0,100%);"></p>
+                <p id="ligne3" style="position: absolute;transform: translate(0,200%);"></p>
+            </section>
+            <img id="perso" src=""></img>
         </section>
-        <img id="perso" src=""></img>
-    </section> 
 
-    <!--Interface PC-->
-    
-    <section class="center">
+        <!--Interface PC-->
 
+        <section class="center">
+            <div id="parcourir">
+                <h4>Parcourir les fichiers</h4>
+                <ul style="list-style: none;padding:0;">
+                    <li>
+                            <input type="checkbox" id="check1" name="ransom">
+                            <label for="check1">Ransomware.exe</label>
+                    </li>
+          <li>
+                <input type="checkbox" id="check2" value="Myfile.txt">
+                <label for="check2">Myfile.txt</label>
+          </li>
+            
+                </ul>
+                <button onclick="openFile()">
+                    Ouvrir
+                </button>
+            </div>
             <!--Dossier Document-->
-            <div class=" folderDrop " id="petitDocument" >
-                    <div class="gauche" id="petitGauche">
-                        <p class="sectionGauche">Bureau</p>
-                        <p class="sectionGauche">Documents</p>
-                        <p class="sectionGauche">projet</p>
-                        <p class="sectionGauche">corbeille</p>
-                        <br>
-                        <br>
-                        <p class="sectionGauche">ce pc</p>
-                    </div>
-                    <div class="droite" id="petitDroite">
-                        <div class="window">
-                            <div class="square"  onclick="grandDoc()">
-                                <i class="fas fa-expand squareBar"></i>
-                            </div>
-                            <div class="cross" onclick="closeDoc()">
-                                <i class="fas fa-times crossBar"></i>
-                            </div>
+            <div class=" folderDrop " id="petitDocument">
+                <div class="gauche" id="petitGauche">
+                    <p class="sectionGauche">Bureau</p>
+                    <p class="sectionGauche">Documents</p>
+                    <p class="sectionGauche">projet</p>
+                    <p class="sectionGauche">corbeille</p>
+                    <br>
+                    <br>
+                    <p class="sectionGauche">ce pc</p>
+                </div>
+                <div class="droite" id="petitDroite">
+                    <div class="window">
+                        <div class="square" onclick="grandDoc()">
+                            <i class="fas fa-expand squareBar"></i>
                         </div>
-                        <div class="petiteDroite" id="petitPetitDroite">
-                            <div class="dossInFolder">
-                                <p>projet</p>
-                            </div>
-                            <div class="dossInFolder">
-                                <p>projet</p>
-                            </div>
-                            <div class="dossInFolder">
-                                <p>projet</p>
-                            </div>
-                            <div class="txtInFolder">
-                                <p>MyFile.txt</p>
-                            </div>
+                        <div class="cross" onclick="closeDoc()">
+                            <i class="fas fa-times crossBar"></i>
+                        </div>
+                    </div>
+                    <div class="petiteDroite" id="petitPetitDroite">
+                        <div class="dossInFolder">
+                            <p>projet</p>
+                        </div>
+                        <div class="dossInFolder">
+                            <p>projet</p>
+                        </div>
+                        <div class="dossInFolder">
+                            <p>projet</p>
+                        </div>
+                        <div class="txtInFolder">
+                            <p>MyFile.txt</p>
                         </div>
                     </div>
                 </div>
+            </div>
             <!--Dossier photo-->
-            <div class=" folderDrop" id="petitPhoto" >
+            <div class=" folderDrop" id="petitPhoto">
                 <div class="gauche" id="petitGauche2">
                     <p class="sectionGauche">Bureau</p>
                     <p class="sectionGauche">Documents</p>
@@ -95,16 +113,16 @@
                 </div>
                 <div class="droite " id="petitDroite2">
                     <div class="window">
-                            <div class="square"  onclick="grandPhoto()">
-                                    <i class="fas fa-expand squareBar"></i>
+                        <div class="square" onclick="grandPhoto()">
+                            <i class="fas fa-expand squareBar"></i>
                         </div>
                         <div class="cross" onclick="closePhoto()">
-                                <i class="fas fa-times crossBar"></i>
+                            <i class="fas fa-times crossBar"></i>
                         </div>
                     </div>
                     <div class="petiteDroite" id="petitPetitDroite2">
                         <div class="dossInFolder">
-                                <p>on est dans photo</p>
+                            <p>on est dans photo</p>
                             <p>projet</p>
                         </div>
                         <div class="dossInFolder">
@@ -120,62 +138,179 @@
                 </div>
             </div>
             <!--Page Internet-->
-            <div class=" folderDrop" id="noodle" >
+            <div class=" folderDrop" id="noodle">
                 <div class="millieu" id='petitMillieu'>
-                        <div class="window">
-                                <div class="square"  onclick="grandInternet()">
-                                        <i class="fas fa-expand squareBar"></i>
-                            </div>
-                            <div class="cross" onclick="closeInternet()">
-                                    <i class="fas fa-times crossBar"></i>
-                            </div>
+                    <div class="window">
+                        <div class="square" onclick="grandInternet()">
+                            <i class="fas fa-expand squareBar"></i>
                         </div>
-                        <div class="bas">
-                            <div>
-                                    <p id="one">N</p>
-                                    <p id="two">O</p>
-                                    <p id="three">O</p>
-                                    <p id="four">D</p>
-                                    <p id="five">L</p>
-                                    <p id="six">E</p>
-                                </div>
-                                <input type="text">
-                                <button>Recherche</button>
+                        <div class="cross" onclick="closeInternet()">
+                            <i class="fas fa-times crossBar"></i>
                         </div>
+                    </div>
+                    <div class="bas">
+                        <div>
+                            <p id="one">N</p>
+                            <p id="two">O</p>
+                            <p id="three">O</p>
+                            <p id="four">D</p>
+                            <p id="five">L</p>
+                            <p id="six">E</p>
+                        </div>
+                        <input type="text">
+                        <button>Recherche</button>
+                    </div>
+                </div>
+            </div>
+            <!--Generateur-->
+            <div id="gene">
+                <div id="exitGen">X</div>
+                <div id="genGauche">
+                    <div id="divFish">
+                        <img id="fishIcon" src="img/fish.jpg">
+                        <p>Phishing</p>
+                    </div>
+                    <br>
+                    <div id="divRan">
+                        <img id="ransomIcon" src="img/ransom.png">
+                        <p>Ransomware</p>
+                    </div>
+                </div>
+                <div id="genDroite">
+                    <p id="contentGen">
+
+                    </p>
+                </div>
+            </div>
+            <div id="mailbox">
+                <h3>Boite de réception </h3>
+                <div id="exitMail" onclick="exitMail()">X</div>
+                <ul id="mailGauche">
+                    <li onclick="showMail()">
+                        Boite de réception
+                    </li>
+                    <li onclick="newMail()">
+                        Nouveau
+                    </li>
+                    <li>
+                        Mails envoyés
+                    </li>
+                    <li>
+                        Indésirable
+                    </li>
+                    <i class=" fa fa-envelope icone fa-7x"></i>
+                </ul>
+                <div id="mailDroit">
+                        
+                    <div id="sendMail">
+
+                        <p id="desti">Destinataire </p>
+                        <p id="mailObj">Object </p>
+                        <textarea id="textarea" style="position:relative;">
+                        
+                        </textarea>
+                        <div>
+                            <button onclick="joindre()">
+                                Joindre
+                            </button>
+                            <button onclick="sendMail()">
+                                Envoyer
+                            </button>
+                        </div>
+                    </div>
+
+                    <ul id="boxMail">
+                        <li>
+                            <strong> Orange:</strong> votre dernière facture à payer
+                        </li>
+                        <li>
+                            <strong>Carrefour:</strong> Recapitulatif des courses
+                        </li>
+                        <li>
+                            <strong>Zalando:</strong> Votre dernière commande du ...
+                        </li>
+                        <li>
+                            <strong>Paypal:</strong> Votre compte à été réapprovisioner
+                        </li>
+                        <li>
+                            <strong>Twitter:</strong> Nouveau message de ... </li>
+                        <li>
+                            <strong>Eurosport:</strong> Nouveau poste pour Mourinho
+                        </li>
+                        <li>
+                            <strong>Selection Quora:</strong> Nouveau sujet du jour.
+                        </li>
+                        <li>
+                            <strong>Volkswagen:</strong> Nouvelle Golf 8
+                        </li>
+                        <li>
+                            <strong>Adidas:</strong> Prochainement, stan smith retro
+                        </li>
+                        <li>
+                            <strong>Youtube:</strong> Nouvelle vidéo de Cyprien
+                        </li>
+                        <li>
+                            <strong>Yves Saint Laurent:</strong> Nouvelle collection de parfum
+                        </li>
+                        <li>
+                            <strong>Polo Ralph Lauren:</strong> Votre commande à bien été envoyé
+                        </li>
+                        <li>
+                            <strong>Tinder:</strong> Camille99 vous a liker
+                        </li>
+                        <li>
+                            <strong>Tasty:</strong> De nouvelles recettes disponnible
+                        </li>
+                        <li>
+                            <strong>Promo du Jour:</strong> Polo Hilfiger à -50%
+                        </li>
+                        <li>
+                            <strong>Audi:</strong> Nouvelle RS6 disponnible
+                        </li>
+
+                    </ul>
                 </div>
             </div>
             <!-- Bureau-->
             <br>
-            <div id="button" ondblclick="existeDoc()" class="dossier doss1" style="z-index:1" >
+            <div id="button" ondblclick="existeDoc()" class="dossier doss1" style="z-index:1">
                 <p>Documents</p>
             </div>
             <br>
-            <div class="dossier doss2" ondblclick="existePhoto()"  style="z-index: 1" id="tof" >
+            <div class="dossier doss2" ondblclick="existePhoto()" style="z-index: 1" id="tof">
                 <p>photo</p>
             </div>
             <br>
-            <div class="dossier doss3"  style="z-index: 1" id="projo">
-                <p>projet</p>
+            <div class="dossier doss3" style="z-index: 1" id="projo" ondblclick="gen()">
+                <p>Generateur</p>
             </div>
             <br>
-            <div class="dossier doss4"  style="z-index:1 "  id="trash">
+            <div class="dossier doss4" style="z-index:1 " id="trash">
                 <p>corbeille</p>
             </div>
-    
-    
+            <div id="phish">
+                <p id="fishI">Phishing</p>
+            </div>
+            <div id="rans">
+                <p id="ransI">Ransomware</p>
+            </div>
+
+
+
             <!--taskbar-->
         </section>
         <section class="taskbar">
             <div class="task2">
-                <i class="fab fa-windows  icone" id="windows" onclick="dialog(dialogue6)" ></i>
+                <i class="fab fa-windows  icone" id="windows" onclick="dialog(dialogue6)"></i>
                 <i class="fab fa-chrome icone" id="chrome" onclick="existeNoodle()"></i></i>
-                <i class=" fa fa-envelope icone" id="mail"></i>
+                <i class=" fa fa-envelope icone" id="mail" onclick="getMail()"></i>
                 <i class=" fa fa-folder-open icone" id="folder" onclick="dialog(dialogue6)"></i>
             </div>
 
-                </section>
-</div>
+        </section>
+    </div>
     <p id="msg"></p>
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
