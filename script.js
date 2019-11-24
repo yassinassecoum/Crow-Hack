@@ -606,7 +606,7 @@ window.onkeydown = function (e) {
                             cent[0].style.zIndex="49";
                             var task=document.getElementsByClassName("taskbar")
                             task[0].style.zIndex="49";
-                            dialog(dialogueue5)5)
+                            dialog(dialogue5)
                             break;
                         case "reception":
                             if (step == 0) {
