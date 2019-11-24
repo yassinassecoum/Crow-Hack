@@ -494,7 +494,7 @@ div>.droite{
   overflow: hidden;
   display: flex;
 position: relative;
-z-index: -1000;
+z-index: 49;
 
 }
 

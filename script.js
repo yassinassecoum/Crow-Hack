@@ -7,6 +7,13 @@ const dialogue2 = [{ nom: 'David', dialogue: "Bonjour, Crow c'est bien ça?  ", 
 
 const dialogue3 = [{ nom: 'David', dialogue: 'Ta cible arrive.', image: 'img/avatars/crow/content.png' }, { nom: 'Crow', dialogue: "...Quoi?", image: 'img/avatars/crow/content.png' }]
 const dialogue4 = [{nom:'Yassion', dialogue: "Salut je suis Yassion! C'est toi le nouveau stagiaire? Crow c'est ça ? Enchanté!", image:'img/avatars/cible/content.png'},{nom:'Crow', dialogue: "...Enchanté Yassion.", image:'img/avatars/cible/content.png'} ]
+
+const dialogue5 = [{nom: 'Crow', dialogue: "Bon par quoi je commence maintenant?", image:"img/avatars/crow/content.png"}]
+
+const dialogue6 = [{nom: 'Crow', dialogue: "je n'ai rien à faire là dedans.", image:"img/avatars/crow/content.png"}]
+const dialogue7 = [{nom: 'Crow', dialogue: "Ah mes vieilles photos de vacances... Mais je dois pas oublier mon objectifs ?!", image:"img/avatars/crow/content.png"}]
+const dialogue8 = [{nom: 'Crow', dialogue: "Je pourrais déja générer un hack, lequel serait le mieux?", image:"img/avatars/crow/content.png"}]
+
 let ligne
 let indexDialog = 0
 let j = 0
@@ -15,9 +22,11 @@ let miliSecond = 50
 let step = 0
 var actuel;
 function dialog(dialogue1) {
+    console.log('je suis la')
     blocage = true;
     setTimeout(function () {
         actuel = dialogue1;
+        document.getElementById('container-box').style.display='flex'
         ligne = document.getElementById(`ligne${k}`)
         document.getElementById('perso').src =dialogue1[indexDialog].image
         let texte = dialogue1[indexDialog].nom + ' : ' + dialogue1[indexDialog].dialogue
@@ -597,6 +606,7 @@ window.onkeydown = function (e) {
                             cent[0].style.zIndex="49";
                             var task=document.getElementsByClassName("taskbar")
                             task[0].style.zIndex="49";
+                            dialog(dialogueue5)5)
                             break;
                         case "reception":
                             if (step == 0) {
@@ -878,6 +888,7 @@ function existeDoc(){
     document.getElementById('petitDocument').style.zIndex=priority;
     priority ++;
     document.getElementById('petitDocument').style.display='flex';
+    dialog(dialogue6)
 }
 
 
@@ -886,7 +897,7 @@ function existePhoto(){
     document.getElementById('petitPhoto').style.zIndex=priority;
     priority ++;
     document.getElementById('petitPhoto').style.display='flex';
-
+    dialog(dialogue7)
 
 }
 
